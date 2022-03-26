@@ -7,7 +7,8 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink
+  NavLink,
+  Row
 } from 'reactstrap';
 
 const Header = () => {
@@ -29,34 +30,42 @@ const Header = () => {
 
   return (
     // <div className={`header${sticky ? ' sticky' : ''}`}>
-      <Navbar light expand="sm" >
-        <Container>
-          
+    <Nav className="m-auto" navbar>
+      <Navbar light expand="md" >
+      <Container>
+        <Collapse isOpen={isOpen} navbar>
           <NavbarToggler onClick={toggle} />
-          <Collapse isOpen={isOpen} navbar>
-            <NavbarBrand href="/">ABCD</NavbarBrand>
-            <Nav className="m-auto" navbar>
-              <NavItem>
-                <NavLink href="/">Logo</NavLink>
-              </NavItem>
+          <Row>
+            <NavbarBrand className="m-auto" href="/">ABCD</NavbarBrand>
+          </Row>
 
-              <NavItem>
-                <NavLink href="/">Home</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="#feature">About</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="#service">Login</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="#about">Signup</NavLink>
-              </NavItem>
-            </Nav>
-          </Collapse>
-        </Container>
-      </Navbar>
+          <Row>
+            <NavItem>
+              <NavLink href="/">Logo</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/">Home</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="#feature">About</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="#service">Login</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="#about">Signup</NavLink>
+            </NavItem>
+          </Row>
+        </Collapse>
+      </Container>
+    </Navbar>
+
+    </Nav>
+    
     // </div>
+
+
+    
   );
 }
 

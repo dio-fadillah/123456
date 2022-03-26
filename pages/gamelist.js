@@ -74,16 +74,8 @@ const Gamelist = () => {
                         <p></p>
                     </Row>
                 </Col>
-            </Row>
-            
-            
-           
-            
-
-
-
-        
-      </Container>
+            </Row>        
+        </Container>
       </main>
 
       <Footer />
