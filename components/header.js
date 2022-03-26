@@ -31,9 +31,10 @@ const Header = () => {
     // <div className={`header${sticky ? ' sticky' : ''}`}>
       <Navbar light expand="sm" >
         <Container>
-          {/* <NavbarBrand href="/">LOGO</NavbarBrand> */}
+          
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
+            <NavbarBrand href="/">ABCD</NavbarBrand>
             <Nav className="m-auto" navbar>
               <NavItem>
                 <NavLink href="/">Logo</NavLink>

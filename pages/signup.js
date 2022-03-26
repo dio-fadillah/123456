@@ -7,7 +7,7 @@ import styles from '../styles/Home.module.css'
 
 const Index = () => {
   return (
-    <Layout pageTitle="Landing Page">
+    <Layout pageTitle="Register Page">
       <Header />
 
       <main>

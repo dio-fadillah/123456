@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'reactstrap';
 import styles from '../styles/Home.module.css'
 import Image from 'next/image'
 
-const Hero = () => {
+const Main = () => {
   return (
     
         <Container fluid>
@@ -40,4 +40,4 @@ const Hero = () => {
     
   );
 }
-export default Hero;
+export default Main;
