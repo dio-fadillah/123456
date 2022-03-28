@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import styles from '../styles/Home.module.css'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Main = () => {
   return (
@@ -22,7 +23,7 @@ const Main = () => {
 
             <Row className="justify-content-md-center">
                 <Col md="auto">
-                    <a className="btn btn-warning btn-lg" href="/login" role="button">PLAY NOW</a>
+                    <Link className="btn btn-warning btn-lg" href="/login" role="button"><a>PLAY NOW</a></Link>
                 </Col>
             </Row>
 

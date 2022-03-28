@@ -5,8 +5,13 @@ import { Container, Button, Form, FormGroup, Label, Input, Col, Row } from 'reac
 import React, { useState } from "react";
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import Result from "../components/dashboard/Result";
+import Sidebar from "../components/Sidebar";
+import Link from 'next/link'
 
-const Login = (props) => {
+
+
+const Dashboard = props => {
     const [inputValue, setInputValue] = useState({ email: '', password: '' })
     const { email, password } = inputValue
 
@@ -29,19 +34,31 @@ const Login = (props) => {
                 alert(err.message)
             })
     }
-  return (
-    <Layout pageTitle="Login Page">
-      <Header />
 
-      <main>
+    return (
+        <>
+        <Container fluid>
+            <Header />
 
-        <Container>
-        <Row className="justify-content-md-center">
-        <Col className="p-5" xs="4">
-                <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/>
-            </Col>
-        <Col className="p-5" xs="4">
-        <FormGroup className={styles.outer}>
+            <Row>
+                <Col xs={3} id="sidebar-wrapper">      
+                    <Sidebar />
+                </Col>
+                
+                <Col  xs={9} id="page-content-wrapper">
+                <Row className="justify-content-md">
+                    <Col className="p-5" xs="2">
+                        <Image src="/assets/home/01.jpg" alt="Picture of the author" width="100px" height="100px"/>
+                    </Col>
+
+                    <Col className="p-5" xs="6">
+                        <h1>Andrea Gromico</h1>
+                        <p>Silver Membership</p>
+                    </Col>
+                                                        
+                </Row>
+                   
+                    {/* <FormGroup className={styles.outer}>
                 <FormGroup className={styles.inner}>
                     <Form onSubmit={handleSubmit}>
                         <h1>Log in</h1>
@@ -71,18 +88,37 @@ const Login = (props) => {
 
                     </Form>
                 </FormGroup>
-        </FormGroup>
-        </Col>
+                    </FormGroup> */}
 
-        </Row>
-        
-            
+            <Row className="justify-content-md-center">
+                <Col className="p-5" xs="2">
+                    <p>User Name</p>
+                    <p>Email</p>
+                    <p>Phone Number</p>
+                    <p>Password</p>
+                </Col>
+
+                <Col className="p-5" xs="6">
+                    <p>AndreGrmc</p>
+                    <p>andrea.gromico@gmail.com</p>
+                    <p>+628781234567890</p>
+                    <p>1234345768</p>
+                </Col>
+
+                <Col className="p-5" xs="4">
+                    <Link href="/login" role="button"><a className="btn btn-warning btn-lg">Edit Mang</a></Link>
+                </Col>
+            </Row>
+
+
+                </Col> 
+            </Row>
+
+            <Footer />
+
         </Container>
-      </main>
+        </>
+        );
+  };
 
-      <Footer />
-    </Layout>
-  );
-};
-export default Login;
-
+  export default Dashboard
