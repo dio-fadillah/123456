@@ -35,7 +35,7 @@ const Dashboard = props => {
     }
 
     return (
-        <>
+        
         <Container fluid>
             <Header />
 
@@ -46,44 +46,31 @@ const Dashboard = props => {
                 <Col  xs={9} id="page-content-wrapper">
                     <h1>Welcome Andrea Gromico !!</h1>
                     <Result/>
-                    <FormGroup className={styles.outer}>
-                <FormGroup className={styles.inner}>
-                    <Form onSubmit={handleSubmit}>
-                        <h1>Log in</h1>
+                    <Row>
+                        <Col className="p-5" xs="6">
+                            <h5>Indonesia Top 5 Points Standing</h5>
+                            <p>1. Abdul</p>
+                            <p>2. Budi</p>
+                            <p>3. Cecep</p>
+                            <p>4. Dian</p>
+                            <p>5. Eko</p>
+                            
+                        </Col>
 
-                        <FormGroup className="form-group">
-                            <Label className="label">Email</Label>
-                            <Input id='email' name="email" type="email" placeholder="Enter email" onChange={handleInput} />
-                        </FormGroup>
-
-                        <FormGroup className="form-group">
-                            <Label className="label">Password</Label>
-                            <Input id='password' name="password" type="password" placeholder="Enter password" onChange={handleInput} />
-                        </FormGroup>
-
-                        <FormGroup>
-                            <FormGroup className="custom-control custom-checkbox">
-                                <Input type="checkbox" className="custom-control-input" id="customCheck1" />
-                                <Label className="custom-control-label" htmlFor="customCheck1"> Remember me</Label>
-                            </FormGroup>
-                        </FormGroup>
-
-                        <Button type="submit" className="btn btn-dark btn-lg btn-block">Sign in</Button>
-                        
-                        <p className="forgot-password text-right">
-                            <a href="https://wa.me/+6212345678"> Forgot password?</a>
-                        </p>
-
-                    </Form>
-                </FormGroup>
-        </FormGroup>
-                </Col> 
+                        <Col className="p-5" xs="6">
+                            <h5>Upcoming Events</h5>
+                            <p>Mabar Anak Komplek</p>
+                            <p>Kompetisi bergilir piala Bang Ijal</p>
+                        </Col>                                   
+                    </Row>
+                </Col>
             </Row>
 
+            
             <Footer />
 
         </Container>
-        </>
+        
         );
   };
 

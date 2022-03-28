@@ -5,6 +5,7 @@ import { Container, Button, Form, FormGroup, Label, Input, Col, Row } from 'reac
 import React, { useState } from "react";
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import Link from 'next/link'
 
 const Signup = () => {
 
@@ -65,7 +66,7 @@ const Signup = () => {
 
                         <Button onClick={handleSubmit} type="submit" className="btn btn-dark btn-lg btn-block">Register</Button>
                         <p className="forgot-password text-right">
-                            Already registered? <a href="/login">Log in</a>
+                            Already registered? <Link href="/login"><a>Log in</a></Link>
                         </p>
                     </Form>
                 </FormGroup>

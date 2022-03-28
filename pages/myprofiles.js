@@ -99,7 +99,7 @@ const Dashboard = props => {
                 </Col>
 
                 <Col className="p-5" xs="6">
-                    <p>AndreGrmc</p>
+                    <p>AndrGrmc</p>
                     <p>andrea.gromico@gmail.com</p>
                     <p>+628781234567890</p>
                     <p>1234345768</p>

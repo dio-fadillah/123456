@@ -10,9 +10,10 @@ const Result = () => {
   return (
     <Container >
         <Row>
+            
             <Col className="p-5" xs={3}>
                 <Row className="justify-content-md-center">
-                    <h5>Total Session</h5>
+                    <h5>Total Sessions</h5>
                     <p>Total round on game</p>
                     <h3>10</h3>
                     <p></p>
