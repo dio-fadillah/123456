@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import { Container, Row, Col } from 'reactstrap';
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import Link from 'next/link'
 
 const Gamelist = () => {
   return (
@@ -30,7 +31,7 @@ const Gamelist = () => {
                         <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/>
                         <p></p>
                         <Col md="auto">
-                            <a className="btn btn-warning btn-lg" href="/login" role="button">PLAY NOW</a>
+                            <Link className="btn btn-warning btn-lg" href="/login" role="button"><a>PLAY NOW</a></Link>
                         </Col>
                         <p></p>
                     </Row>
@@ -43,7 +44,7 @@ const Gamelist = () => {
                         <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/>
                         <p></p>
                         <Col md="auto">
-                            <a className="btn btn-warning btn-lg" href="/login" role="button">PLAY NOW</a>
+                            <Link className="btn btn-warning btn-lg" href="/login" role="button"><a>PLAY NOW</a></Link>
                         </Col>
                         <p></p>
                     </Row>
@@ -56,7 +57,7 @@ const Gamelist = () => {
                         <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/>
                         <p></p>
                         <Col md="auto">
-                            <a className="btn btn-warning btn-lg" href="/login" role="button">PLAY NOW</a>
+                            <Link className="btn btn-warning btn-lg" href="/login" role="button"><a>PLAY NOW</a></Link>
                         </Col>
                         <p></p>
                     </Row>
@@ -69,7 +70,7 @@ const Gamelist = () => {
                         <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/>
                         <p></p>
                         <Col md="auto">
-                            <a className="btn btn-warning btn-lg" href="/login" role="button">PLAY NOW</a>
+                            <Link className="btn btn-warning btn-lg" href="/login" role="button"><a>PLAY NOW</a></Link>
                         </Col>
                         <p></p>
                     </Row>

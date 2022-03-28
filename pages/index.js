@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import { Container, Row, Col } from 'reactstrap';
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import Link from 'next/link'
 
 const Index = () => {
   return (
@@ -27,7 +28,7 @@ const Index = () => {
 
         <Row className="justify-content-md-center">
             <Col md="auto">
-                <a className="btn btn-warning btn-lg" href="/login" role="button">PLAY NOW</a>
+                <Link href="/login" role="button"><a className="btn btn-warning btn-lg">PLAY NOW</a></Link>
             </Col>
         </Row>
 

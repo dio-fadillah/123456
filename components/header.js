@@ -29,43 +29,32 @@ const Header = () => {
   }
 
   return (
-    // <div className={`header${sticky ? ' sticky' : ''}`}>
-    <Nav className="m-auto" navbar>
+    <div className={`header${sticky ? ' sticky' : ''}`}>
+    <Nav navbar>
       <Navbar light expand="md" >
       <Container>
         <Collapse isOpen={isOpen} navbar>
-          <NavbarToggler onClick={toggle} />
-          <Row>
-            <NavbarBrand className="m-auto" href="/">ABCD</NavbarBrand>
-          </Row>
-
-          <Row>
+          <NavbarToggler className="m-auto" onClick={toggle} />
+            <NavbarBrand xs={6} href="/">Logo Disini Ya !</NavbarBrand>
+          
             <NavItem>
-              <NavLink href="/">Logo</NavLink>
+              <NavLink href="/"><a>Home</a></NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/">Home</NavLink>
+              <NavLink href="/gamelist"><a>Gamelist</a></NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="#feature">About</NavLink>
+              <NavLink href="/login">Login</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="#service">Login</NavLink>
+              <NavLink href="/signup">Signup</NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink href="#about">Signup</NavLink>
-            </NavItem>
-          </Row>
         </Collapse>
       </Container>
     </Navbar>
 
     </Nav>
-    
-    // </div>
-
-
-    
+    </div>    
   );
 }
 
