@@ -5,6 +5,7 @@ import { Container, Button, Form, FormGroup, Label, Input, Col, Row } from 'reac
 import React, { useState } from "react";
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import firebase from '../services/firebase'
 
 const Login = (props) => {
     const [inputValue, setInputValue] = useState({ email: '', password: '' })
@@ -14,9 +15,9 @@ const Login = (props) => {
         const { name, value } = e.target
         setInputValue({ ...inputValue, [name]: value })
     }
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        signInWithEmailAndPassword(auth, email, password)
+    const handleSubmit = () => {
+        // e.preventDefault()
+        firebase.auth.signInWithEmailAndPassword(auth, email, password)
             .then(userCredential => {
                 const isLogin = userCredential.user
                 console.log(isLogin)

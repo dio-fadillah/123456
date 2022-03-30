@@ -6,6 +6,8 @@ import React, { useState } from "react";
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
+import firebase from '../services/firebase'
+
 
 const Signup = () => {
 
@@ -17,22 +19,36 @@ const Signup = () => {
         setInputValue(input => ({ ...input, [name]: value }))
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = () => {
 
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                if (user) {
-                    setInputValue({ email: '', password: '' })
-                    props.navigate('/login')
-                }
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log({ errorCode, errorMessage })
-            })
+        firebase.auth.createUserWithEmailAndPassword(auth, email, password)
+         .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            // props.navigate('/login')
+            console.log(userCredential)
+            // ...
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+    // ..
+  });
+        // e.preventDefault();
+
+        // firebase.createUserWithEmailAndPassword(auth, email, password)
+        //     .then((userCredential) => {
+        //         const user = userCredential.user;
+        //         if (user) {
+        //             setInputValue({ email: '', password: '' })
+                    // props.navigate('/login')
+        //         }
+        //     })
+        //     .catch((error) => {
+        //         const errorCode = error.code;
+        //         const errorMessage = error.message;
+        //         console.log({ errorCode, errorMessage })
+        //     })
         
         
     }
