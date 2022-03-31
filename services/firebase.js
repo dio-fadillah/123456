@@ -1,4 +1,3 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp, getApps } from "firebase/app";
 // import { getAnalytics } from "firebase/analytics";
 import { 
@@ -10,23 +9,31 @@ import {
 import { async } from "@firebase/util";
 import * as React from "react";
 
+import { getAnalytics } from "firebase/analytics";
+import 'firebase/auth'
+import 'firebase/storage'
 
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_APP_ID,
-  measurementId: process.env.NEXT_PUBLIC_MEASUREMENT_ID
+  apiKey: "AIzaSyAYkhmER8bG3wGkmS3TJ9Ij1As2hoGTvwE",
+  authDomain: "binar-taskforce-team-1.firebaseapp.com",
+  projectId: "binar-taskforce-team-1",
+  storageBucket: "binar-taskforce-team-1.appspot.com",
+  messagingSenderId: "770081196719",
+  appId: "1:770081196719:web:5546cc80b2f71d953c225a",
+  measurementId: "G-FCW8LXB2M8"
 };
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+export default app
+// const analytics = getAnalytics(app);
 
 // Initialize Firebase
 // const app = initializeApp(firebaseConfig);
 // // const analytics = getAnalytics(app)
-if (!getApps().length) {
-    initializeApp(firebaseConfig)
-}
+// if (!getApps().length) {
+//     initializeApp(firebaseConfig)
+// }
 
 
 export const FirebaseAuth = getAuth()
@@ -66,3 +73,4 @@ export const GetSignUpErrorMessage = (code) => {
             return "Terjadi kesalahan saat proses sign up"
     }
 }
+

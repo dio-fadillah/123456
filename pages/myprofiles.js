@@ -11,7 +11,7 @@ import Link from 'next/link'
 
 
 
-const Dashboard = props => {
+const MyProfiles = props => {
     const [inputValue, setInputValue] = useState({ email: '', password: '' })
     const { email, password } = inputValue
 
@@ -40,23 +40,22 @@ const Dashboard = props => {
         <Container fluid>
             <Header />
 
-            <Row>
-                <Col xs={3} id="sidebar-wrapper">      
-                    <Sidebar />
-                </Col>
-                
-                <Col  xs={9} id="page-content-wrapper">
-                <Row className="justify-content-md">
-                    <Col className="p-5" xs="2">
-                        <Image src="/assets/home/01.jpg" alt="Picture of the author" width="100px" height="100px"/>
+                <Row>
+                    <Col xs={3} id="sidebar-wrapper">      
+                        <Sidebar />
                     </Col>
+                    
+                    <Col  xs={9} id="page-content-wrapper">
+                    <Row className="justify-content-md">
+                        <Col className="p-5" xs="2">
+                            <Image src="/assets/home/01.jpg" alt="Picture of the author" width="100px" height="100px"/>
+                        </Col>
 
-                    <Col className="p-5" xs="6">
-                        <h1>Andrea Gromico</h1>
-                        <p>Silver Membership</p>
-                    </Col>
-                                                        
-                </Row>
+                        <Col className="p-5" xs="6">
+                            <h1>Andrea Gromico</h1>
+                            <p>Silver Membership</p>
+                        </Col>                                   
+                    </Row>
                    
                     {/* <FormGroup className={styles.outer}>
                 <FormGroup className={styles.inner}>
@@ -121,4 +120,4 @@ const Dashboard = props => {
         );
   };
 
-  export default Dashboard
+  export default MyProfiles

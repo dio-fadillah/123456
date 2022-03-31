@@ -10,6 +10,8 @@ import { useForm } from "react-hook-form";
 import FormError from "../components/forms/error";
 import { SignUp, GetSignUpErrorMessage } from "../services/firebase";
 import withUnprotected from "../hoc/withUnprotected";
+import firebase from '../services/firebase'
+
 
 const Signup = () => {
     const [isLoading, setIsLoading] = useState(false)
@@ -63,9 +65,41 @@ const Signup = () => {
     //             const errorMessage = error.message;
     //             console.log({ errorCode, errorMessage })
     //         })
+
+//     const handleSubmit = () => {
+
+//         firebase.auth.createUserWithEmailAndPassword(auth, email, password)
+//          .then((userCredential) => {
+//             // Signed in 
+//             const user = userCredential.user;
+//             // props.navigate('/login')
+//             console.log(userCredential)
+//             // ...
+//         })
+//         .catch((error) => {
+//             const errorCode = error.code;
+//             const errorMessage = error.message;
+//     // ..
+//   });
+//         // e.preventDefault();
+
+//         // firebase.createUserWithEmailAndPassword(auth, email, password)
+//         //     .then((userCredential) => {
+//         //         const user = userCredential.user;
+//         //         if (user) {
+//         //             setInputValue({ email: '', password: '' })
+//                     // props.navigate('/login')
+//         //         }
+//         //     })
+//         //     .catch((error) => {
+//         //         const errorCode = error.code;
+//         //         const errorMessage = error.message;
+//         //         console.log({ errorCode, errorMessage })
+//         //     })
+// >>>>>>> 08c912b60876ccbf36fa0f239d1402a0ee350683
         
         
-    // }
+//     // }
 
   return (
     <Layout pageTitle="Register Page">
@@ -115,7 +149,7 @@ const Signup = () => {
                             <Input 
                             id='confirmPassword' 
                             name='confirmPassword' 
-                            type='confirmPassword' 
+                            type='password' 
                             placeholder='Konfirmasi password'
                             variant='filled'
                             {...register("confirmPassword", { 

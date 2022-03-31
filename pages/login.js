@@ -11,15 +11,19 @@ import { Link } from "react-bootstrap-icons";
 
 import { SignIn, GetSignInErrorMessage } from "../services/firebase";
 import { async } from "@firebase/util";
+import firebase from '../services/firebase'
 
 const Login = (props) => {
     // const [inputValue, setInputValue] = useState({ email: '', password: '' })
     // const { email, password } = inputValue
 
+
     const { register, handleSubmit, formState: { errors } } = useForm();
 
+    
     const onSubmit = async (values) => {
         const { email, password } = values
+        console.log(email)
         try {
             await SignIn(email, password)
         } catch (error) {
@@ -27,27 +31,28 @@ const Login = (props) => {
             console.log(message)
         }
     }
+// =======
+//     const handleInput = (e) => {
+//         const { name, value } = e.target
+//         setInputValue({ ...inputValue, [name]: value })
+//     }
+//     const handleSubmit = () => {
+//         // e.preventDefault()
+//         firebase.auth.signInWithEmailAndPassword(auth, email, password)
+//             .then(userCredential => {
+//                 const isLogin = userCredential.user
+//                 console.log(isLogin)
+//                 if (isLogin) {
+//                     setInputValue({ email: '', password: '' })
+//                     props.navigate('/gamelist')
+//                 }
+//             })
+//             .catch(err => {
+//                 alert(err.message)
+//             })
+// >>>>>>> 08c912b60876ccbf36fa0f239d1402a0ee350683
+//     }
     
-
-    // const handleInput = (e) => {
-    //     const { name, value } = e.target
-    //     setInputValue({ ...inputValue, [name]: value })
-    // }
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     signInWithEmailAndPassword(auth, email, password)
-    //         .then(userCredential => {
-    //             const isLogin = userCredential.user
-    //             console.log(isLogin)
-    //             if (isLogin) {
-    //                 setInputValue({ email: '', password: '' })
-    //                 props.navigate('/gamelist')
-    //             }
-    //         })
-    //         .catch(err => {
-    //             alert(err.message)
-    //         })
-    // }
 
   return (
     <Layout pageTitle="Login Page">
@@ -61,12 +66,13 @@ const Login = (props) => {
                 <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/>
             </Col>
         <Col className="p-5" xs="4">
+        <Form onSubmit={handleSubmit(onSubmit)}>
         <FormGroup className={styles.outer}>
                 <FormGroup className={styles.inner}>
-                    <Form onSubmit={handleSubmit(onSubmit)}>
+                    
                         <h1>Log in</h1>
 
-                        <FormControl className="form-group">
+                        <FormGroup className="form-group">
                             <Label className="label">Email</Label>
                             <Input 
                             id='email' 
@@ -77,9 +83,9 @@ const Login = (props) => {
                             {...register("email", { required: true })}
                             />
                             <FormError error={errors.email} />
-                        </FormControl>
+                        </FormGroup>
 
-                        <FormControl className="form-group">
+                        <FormGroup className="form-group">
                             <Label className="label">Password</Label>
                             <Input 
                             id='password' 
@@ -90,7 +96,7 @@ const Login = (props) => {
                             {...register("password", { required: true, minLength: 8 })}
                             />
                             <FormError error={errors.password} />
-                        </FormControl>
+                        </FormGroup>
 
                         <FormGroup>
                             <FormGroup className="custom-control custom-checkbox">
@@ -99,15 +105,16 @@ const Login = (props) => {
                             </FormGroup>
                         </FormGroup>
 
-                        <Button type="submit" variant='contained' className="btn btn-dark btn-lg btn-block" fullWidth>Sign in</Button>
+                        <Button type="submit" variant='contained' className="btn btn-dark btn-lg btn-block">Sign in</Button>
                         
                         <p className="forgot-password text-right">
                             <Link href="https://wa.me/+6212345678"> Forgot password?</Link>
                         </p>
 
-                    </Form>
+                
                 </FormGroup>
         </FormGroup>
+        </Form>
         </Col>
 
         </Row>
