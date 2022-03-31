@@ -31,7 +31,7 @@ const Gamelist = () => {
                         <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/>
                         <p></p>
                         <Col md="auto">
-                            <Link className="btn btn-warning btn-lg" href="/login" role="button"><a>PLAY NOW</a></Link>
+                            <Link className="btn btn-warning btn-lg" href="/login" role="button">PLAY NOW</Link>
                         </Col>
                         <p></p>
                     </Row>
@@ -44,7 +44,7 @@ const Gamelist = () => {
                         <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/>
                         <p></p>
                         <Col md="auto">
-                            <Link className="btn btn-warning btn-lg" href="/login" role="button"><a>PLAY NOW</a></Link>
+                            <Link className="btn btn-warning btn-lg" href="/login" role="button">PLAY NOW</Link>
                         </Col>
                         <p></p>
                     </Row>
@@ -57,7 +57,7 @@ const Gamelist = () => {
                         <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/>
                         <p></p>
                         <Col md="auto">
-                            <Link className="btn btn-warning btn-lg" href="/login" role="button"><a>PLAY NOW</a></Link>
+                            <Link className="btn btn-warning btn-lg" href="/login" role="button">PLAY NOW</Link>
                         </Col>
                         <p></p>
                     </Row>
@@ -70,7 +70,7 @@ const Gamelist = () => {
                         <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/>
                         <p></p>
                         <Col md="auto">
-                            <Link className="btn btn-warning btn-lg" href="/login" role="button"><a>PLAY NOW</a></Link>
+                            <Link className="btn btn-warning btn-lg" href="/login" role="button">PLAY NOW</Link>
                         </Col>
                         <p></p>
                     </Row>
