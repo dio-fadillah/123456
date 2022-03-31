@@ -6,7 +6,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from "next/link";
 
-const Index = () => {
+const Suwit = () => {
   return (
     <Layout pageTitle="Rock Paper Scissors">
       <Header />
@@ -94,5 +94,5 @@ const Index = () => {
     </Layout>
   );
 };
-export default Index;
+export default Suwit;
 
