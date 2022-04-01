@@ -54,6 +54,8 @@ export const SignIn = async (email, password) => {
 
 export const SignOut = async () => {
     await signOut(FirebaseAuth)
+    window.location.assign('/');
+
 }
 
 export const GetSignInErrorMessage = (code) => {

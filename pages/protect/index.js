@@ -5,7 +5,7 @@ import { useUser } from "../../context/user"
 
 const Protect = () => {
     const user = useUser()
-    const { email, uid } = user
+    const { email, uid } = inputValue
     return (
         <AuthLayout title="Protected Page">
             <div>
