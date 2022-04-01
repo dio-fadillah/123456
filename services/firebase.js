@@ -6,10 +6,10 @@ import {
     signInWithEmailAndPassword,
     signOut
 } from 'firebase/auth'
-import { async } from "@firebase/util";
-import * as React from "react";
+// import { async } from "@firebase/util";
+// import * as React from "react";
 
-import { getAnalytics } from "firebase/analytics";
+// import { getAnalytics } from "firebase/analytics";
 import 'firebase/auth'
 import 'firebase/storage'
 
@@ -42,8 +42,8 @@ export const Authentication = () => {
     return FirebaseAuth
 }
 
-export const SignUp = async (email, password) => {
-    await createUserWithEmailAndPassword(FirebaseAuth, email, password)
+export const SignUp = (email, password) => {
+    createUserWithEmailAndPassword(FirebaseAuth, email, password)
 }
 
 export const SignIn = async (email, password) => {
