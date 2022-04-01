@@ -1,37 +1,51 @@
 import Layout from "../components/Layout";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Container, Button, Form, FormGroup, FormControl, Label, Input, Col, Row } from 'reactstrap'
+import { Container, Button, Form, FormGroup, Label, Input, Col, Row } from 'reactstrap'
 import React, { useState } from "react";
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import { useForm } from "react-hook-form";
+import Link from 'next/link'
+import { auth, SignUp, GetSignUpErrorMessage } from "../services/firebase";
+// import firebase from '../services/firebase'
 import FormError from "../components/forms/error";
-import { Link } from "react-bootstrap-icons";
-
-import { SignIn, GetSignInErrorMessage } from "../services/firebase";
-import { async } from "@firebase/util";
-import firebase from '../services/firebase'
+import { signInWithEmailAndPassword } from "firebase/auth";
+import withUnprotected from "../hoc/withUnprotected";
 
 const Login = (props) => {
-    // const [inputValue, setInputValue] = useState({ email: '', password: '' })
-    // const { email, password } = inputValue
+    const [inputValue, setInputValue] = useState({ email: '', password: '' })
+    const { email, password } = inputValue
 
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const handlerOnchange = (e) => {
+        e.preventDefault()
+        setInputValue({ ...inputValue, [e.target.name]: e.target.value });
+        console.log(inputValue)
+    };
+  
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        setInputValue({ ...inputValue, [e.target.name]: e.target.value });
+        console.log(inputValue)
+        // try {
+        //     SignUp(inputValue)
+        // } catch(error) {
+        //     const message = GetSignUpErrorMessage(error.code)
+        //     console.log(message)
+        // }
 
-    
-    const onSubmit = async (values) => {
-        const { email, password } = values
-        console.log(email)
-        try {
-            await SignIn(email, password)
-        } catch (error) {
-            const message = GetSignInErrorMessage(error.code)
-            console.log(message)
-        }
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                window.location.assign('/dashboard');
+            
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log({ errorCode, errorMessage })
+            })
     }
-// =======
 //     const handleInput = (e) => {
 //         const { name, value } = e.target
 //         setInputValue({ ...inputValue, [name]: value })
@@ -66,7 +80,7 @@ const Login = (props) => {
                 <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/>
             </Col>
         <Col className="p-5" xs="4">
-        <Form onSubmit={handleSubmit(onSubmit)}>
+        <Form onSubmit={handleSubmit}>
         <FormGroup className={styles.outer}>
                 <FormGroup className={styles.inner}>
                     
@@ -80,9 +94,11 @@ const Login = (props) => {
                             type="email" 
                             variant='filled'
                             placeholder="Enter email" 
-                            {...register("email", { required: true })}
+                            value={email}
+                            onChange={handlerOnchange}
+                            // {...register("email", { required: true })}
                             />
-                            <FormError error={errors.email} />
+                            {/* <FormError error={errors.email} /> */}
                         </FormGroup>
 
                         <FormGroup className="form-group">
@@ -93,9 +109,11 @@ const Login = (props) => {
                             type="password" 
                             variant='filled'
                             placeholder="Enter password" 
-                            {...register("password", { required: true, minLength: 8 })}
+                            value={password}
+                            onChange={handlerOnchange}
+                            // {...register("password", { required: true, minLength: 8 })}
                             />
-                            <FormError error={errors.password} />
+                            {/* <FormError error={errors.password} /> */}
                         </FormGroup>
 
                         <FormGroup>

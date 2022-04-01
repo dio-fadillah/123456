@@ -10,11 +10,13 @@ import { auth, SignUp, GetSignUpErrorMessage } from "../services/firebase";
 // import firebase from '../services/firebase'
 import FormError from "../components/forms/error";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import withUnprotected from "../hoc/withUnprotected";
 
 // console.log(firebase)
 
 const Signup = () => {
     const [inputValue, setInputValue] = useState({ email: '', password: '' })
+    const { email, password , password1} = inputValue
 
     const handlerOnchange = (e) => {
         e.preventDefault()
@@ -33,9 +35,10 @@ const Signup = () => {
         //     console.log(message)
         // }
 
-        createUserWithEmailAndPassword(email, password)
+        createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
+                window.location.assign('/dashboard');
             
             })
             .catch((error) => {
@@ -129,6 +132,7 @@ const Signup = () => {
                             type='email' 
                             placeholder='Enter email'
                             variant='filled'
+                            value={email}
                             onChange={handlerOnchange}
                             // {...register("email", { required: true })}
                             />
@@ -141,6 +145,7 @@ const Signup = () => {
                             id='password' 
                             name='password' 
                             type='password' 
+                            value={password}
                             placeholder='Enter password'
                             onChange={handlerOnchange}
                             variant='filled'
@@ -157,6 +162,7 @@ const Signup = () => {
                             type='password' 
                             placeholder='Konfirmasi password'
                             variant='filled'
+                            value={password1}
                             // {...register("confirmPassword", { 
                             //     required: true, 
                             //     minLength: 8, 
