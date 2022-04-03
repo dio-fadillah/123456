@@ -6,49 +6,54 @@ import React, { useState } from "react";
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
-import { auth, SignUp, GetSignUpErrorMessage } from "../service/firebase";
-// import firebase from '../services/firebase'
-import FormError from "../components/forms/error";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import withUnprotected from "../hook/withUnprotected";
 
-// console.log(firebase)
+import FormError from "../components/forms/error";
+// import { SignUp, GetSignUpErrorMessage } from "../services/firebase";
+// // import withUnprotected from "../hoc/withUnprotected";
+// import firebase from '../services/firebase'
+
 
 const Signup = () => {
-    const [inputValue, setInputValue] = useState({ email: '', password: '' })
-    const { email, password , password1} = inputValue
+    // const [isLoading, setIsLoading] = useState(false)
+    // // const [showPassword, setShowPassword] = useState(false)
+    // // const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+    const [inputValue, setInputValue] = useState({ email: 'a', password: '' })
+    // const { email, password } = inputValue
+
+    const { 
+        register, 
+        watch, 
+        formState: { errors } 
+    } = useForm();
+
+    // const password = useRef({})
+    // password.current = watch('password')
+
+    // console.log({ pass: password.current })
+
+    // const handlerOnchange = (event) => {
+    //     const {name,values} = event.target
+    //     setInputValue ({...inputValue,[name]: values})  
+    //     console.log(inputValue)
+        
+    // }
 
     const handlerOnchange = (e) => {
-        e.preventDefault()
         setInputValue({ ...inputValue, [e.target.name]: e.target.value });
         console.log(inputValue)
     };
   
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        setInputValue({ ...inputValue, [e.target.name]: e.target.value });
-        console.log(inputValue)
-        // try {
-        //     SignUp(inputValue)
-        // } catch(error) {
-        //     const message = GetSignUpErrorMessage(error.code)
-        //     console.log(message)
-        // }
-
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                window.location.assign('/dashboard');
-            
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log({ errorCode, errorMessage })
-            })
+    const handleSubmit = (values) => {
+    //    setIsLoading(true) 
+    //     const { email, password } = values
+    //     try {
+    //         SignUp(email, password)
+    //     } catch(error) {
+    //         const message = GetSignUpErrorMessage(error.code)
+    //         console.log(message)
+    //         setIsLoading(false)
+    //     }
     }
-
-    
 
     // const handleInput = e => {
     //     const { name, value } = e.target
@@ -132,7 +137,6 @@ const Signup = () => {
                             type='email' 
                             placeholder='Enter email'
                             variant='filled'
-                            value={email}
                             onChange={handlerOnchange}
                             // {...register("email", { required: true })}
                             />
@@ -145,13 +149,12 @@ const Signup = () => {
                             id='password' 
                             name='password' 
                             type='password' 
-                            value={password}
                             placeholder='Enter password'
                             onChange={handlerOnchange}
                             variant='filled'
                             // {...register("password", { required: true, minLength: 8 })}
                             />
-                            {/* <FormError error={errors.password} /> */}
+                            <FormError error={errors.password} />
                         </FormGroup>
 
                         <FormGroup className="form-group">
@@ -162,14 +165,13 @@ const Signup = () => {
                             type='password' 
                             placeholder='Konfirmasi password'
                             variant='filled'
-                            value={password1}
                             // {...register("confirmPassword", { 
                             //     required: true, 
                             //     minLength: 8, 
                             //     validate: (value) => value === password.current
                             // })}
                             />
-                            {/* <FormError error={errors.confirmPassword} /> */}
+                            <FormError error={errors.confirmPassword} />
                         </FormGroup>
 
                         <Button onClick={handleSubmit} type="submit" className="btn btn-dark btn-lg btn-block">Register</Button>
@@ -187,5 +189,5 @@ const Signup = () => {
     </Layout>
   );
 };
-export default Signup;
+export default withUnprotected(Signup);
 

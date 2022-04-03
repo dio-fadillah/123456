@@ -1,13 +1,18 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { initializeApp, getApps } from "firebase/app";
+// import { getAnalytics } from "firebase/analytics";
+import { 
+    getAuth, 
+    createUserWithEmailAndPassword, 
+    signInWithEmailAndPassword,
+    signOut
+} from 'firebase/auth'
+// import { async } from "@firebase/util";
+// import * as React from "react";
+
+// import { getAnalytics } from "firebase/analytics";
 import 'firebase/auth'
 import 'firebase/storage'
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyAYkhmER8bG3wGkmS3TJ9Ij1As2hoGTvwE",
   authDomain: "binar-taskforce-team-1.firebaseapp.com",
@@ -21,4 +26,55 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export default app
+export const auth = getAuth() 
 // const analytics = getAnalytics(app);
+
+// Initialize Firebase
+// const app = initializeApp(firebaseConfig);
+// // const analytics = getAnalytics(app)
+// if (!getApps().length) {
+//     initializeApp(firebaseConfig)
+// }
+
+
+
+export const FirebaseAuth = getAuth()
+
+export const Authentication = () => {
+    return FirebaseAuth
+}
+
+export const SignUp = (email, password) => {
+    createUserWithEmailAndPassword(FirebaseAuth, email, password)
+}
+
+export const SignIn = async (email, password) => {
+    await signInWithEmailAndPassword(FirebaseAuth, email, password)
+}
+
+export const SignOut = async () => {
+    await signOut(FirebaseAuth)
+    window.location.assign('/');
+
+}
+
+export const GetSignInErrorMessage = (code) => {
+    switch (code) {
+        case 'auth/user-not-found':
+            return "Email tidak terdaftar"
+        case 'wrong-password':
+        default:
+            return "Email atau password salah"
+    }
+}
+
+export const GetSignUpErrorMessage = (code) => {
+    switch (code) {
+        case 'auth/email-already-in-use':
+            return "Email telah terdaftar"
+        case 'wrong-password':
+        default:
+            return "Terjadi kesalahan saat proses sign up"
+    }
+}
+
