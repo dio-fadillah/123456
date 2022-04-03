@@ -4,7 +4,7 @@ import '../styles/dashboard.module.css'
 import { RiDashboard2Fill } from "react-icons/Ri";
 import { CgProfile } from "react-icons/Cg";
 import { MdOutlineRedeem, MdLiveHelp, MdLogout } from "react-icons/Md";
-import { SignOut } from "../service/firebase";
+import { SignOut } from "../services/firebase";
 
 
 const Sidebar = props => {
