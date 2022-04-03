@@ -5,69 +5,31 @@ import { Container, Button, Form, FormGroup, Label, Input, Col, Row } from 'reac
 import React, { useState } from "react";
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import Link from 'next/link'
-import { auth, SignUp, GetSignUpErrorMessage } from "../services/firebase";
-// import firebase from '../services/firebase'
-import FormError from "../components/forms/error";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import withUnprotected from "../hoc/withUnprotected";
+import firebase from '../services/firebase'
 
 const Login = (props) => {
     const [inputValue, setInputValue] = useState({ email: '', password: '' })
     const { email, password } = inputValue
 
-
-    const handlerOnchange = (e) => {
-        e.preventDefault()
-        setInputValue({ ...inputValue, [e.target.name]: e.target.value });
-        console.log(inputValue)
-    };
-  
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        setInputValue({ ...inputValue, [e.target.name]: e.target.value });
-        console.log(inputValue)
-        // try {
-        //     SignUp(inputValue)
-        // } catch(error) {
-        //     const message = GetSignUpErrorMessage(error.code)
-        //     console.log(message)
-        // }
-
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                window.location.assign('/dashboard');
-            
+    const handleInput = (e) => {
+        const { name, value } = e.target
+        setInputValue({ ...inputValue, [name]: value })
+    }
+    const handleSubmit = () => {
+        // e.preventDefault()
+        firebase.auth.signInWithEmailAndPassword(auth, email, password)
+            .then(userCredential => {
+                const isLogin = userCredential.user
+                console.log(isLogin)
+                if (isLogin) {
+                    setInputValue({ email: '', password: '' })
+                    props.navigate('/gamelist')
+                }
             })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log({ errorCode, errorMessage })
+            .catch(err => {
+                alert(err.message)
             })
     }
-//     const handleInput = (e) => {
-//         const { name, value } = e.target
-//         setInputValue({ ...inputValue, [name]: value })
-//     }
-//     const handleSubmit = () => {
-//         // e.preventDefault()
-//         firebase.auth.signInWithEmailAndPassword(auth, email, password)
-//             .then(userCredential => {
-//                 const isLogin = userCredential.user
-//                 console.log(isLogin)
-//                 if (isLogin) {
-//                     setInputValue({ email: '', password: '' })
-//                     props.navigate('/gamelist')
-//                 }
-//             })
-//             .catch(err => {
-//                 alert(err.message)
-//             })
-// >>>>>>> 08c912b60876ccbf36fa0f239d1402a0ee350683
-//     }
-    
-
   return (
     <Layout pageTitle="Login Page">
       <Header />
@@ -80,40 +42,19 @@ const Login = (props) => {
                 <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/>
             </Col>
         <Col className="p-5" xs="4">
-        <Form onSubmit={handleSubmit}>
         <FormGroup className={styles.outer}>
                 <FormGroup className={styles.inner}>
-                    
+                    <Form onSubmit={handleSubmit}>
                         <h1>Log in</h1>
 
                         <FormGroup className="form-group">
                             <Label className="label">Email</Label>
-                            <Input 
-                            id='email' 
-                            name="email" 
-                            type="email" 
-                            variant='filled'
-                            placeholder="Enter email" 
-                            value={email}
-                            onChange={handlerOnchange}
-                            // {...register("email", { required: true })}
-                            />
-                            {/* <FormError error={errors.email} /> */}
+                            <Input id='email' name="email" type="email" placeholder="Enter email" onChange={handleInput} />
                         </FormGroup>
 
                         <FormGroup className="form-group">
                             <Label className="label">Password</Label>
-                            <Input 
-                            id='password' 
-                            name="password" 
-                            type="password" 
-                            variant='filled'
-                            placeholder="Enter password" 
-                            value={password}
-                            onChange={handlerOnchange}
-                            // {...register("password", { required: true, minLength: 8 })}
-                            />
-                            {/* <FormError error={errors.password} /> */}
+                            <Input id='password' name="password" type="password" placeholder="Enter password" onChange={handleInput} />
                         </FormGroup>
 
                         <FormGroup>
@@ -123,16 +64,15 @@ const Login = (props) => {
                             </FormGroup>
                         </FormGroup>
 
-                        <Button type="submit" variant='contained' className="btn btn-dark btn-lg btn-block">Sign in</Button>
+                        <Button type="submit" className="btn btn-dark btn-lg btn-block">Sign in</Button>
                         
                         <p className="forgot-password text-right">
-                            <Link href="https://wa.me/+6212345678"> Forgot password?</Link>
+                            <a href="https://wa.me/+6212345678"> Forgot password?</a>
                         </p>
 
-                
+                    </Form>
                 </FormGroup>
         </FormGroup>
-        </Form>
         </Col>
 
         </Row>

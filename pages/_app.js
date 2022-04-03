@@ -1,26 +1,16 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/globals.css';
-import '../styles/header.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import { Provider } from 'react-redux'
 import { createWrapper } from 'next-redux-wrapper'
 import store from '../redux/store'
 
-import { UserProvider } from '../context/user';
-import AuthStateChangeProvider from '../context/auth';
-
-
 function MyApp({ Component, pageProps }) {
-  return (
-  <>
-  <UserProvider>
-    <AuthStateChangeProvider>
-      <Provider store={store}>
-        <Component {...pageProps} />
-      </Provider>
-    </AuthStateChangeProvider>
-  </UserProvider>
-  </>
-  )
+	return (
+		<>
+			<Provider store={store}>
+				<Component {...pageProps} />
+			</Provider>
+		</>
+	)
 }
 
 // initialize store and wrapper store
