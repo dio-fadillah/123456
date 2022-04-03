@@ -22,19 +22,16 @@ const Sidebar = props => {
                 <Nav.Link href="/home"><h4><RiDashboard2Fill/> My Dashboard</h4></Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link href="/myprofiles"><h4><CgProfile/> My Profiles</h4></Nav.Link>
+                <Nav.Link eventKey="/profile"><h4><CgProfile/> My Profiles</h4></Nav.Link>
             </Nav.Item>
             <Nav.Item>
                 <Nav.Link eventKey="link-2"><h4><MdOutlineRedeem/> Redeem Voucher</h4></Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link href="/gamelist"><h4><MdOutlineRedeem/> Gamelist</h4></Nav.Link>
+                <Nav.Link eventKey="link-2"><h4><MdOutlineRedeem/> Gamelist</h4></Nav.Link>
             </Nav.Item>
             <Nav.Item>
                 <Nav.Link eventKey="link-2"><h4><MdLiveHelp/> Ask for help</h4></Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-                <Nav.Link onClick={SignOut} ><h4><MdLogout/> Logout</h4></Nav.Link>
             </Nav.Item>
             </Nav>
           

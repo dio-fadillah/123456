@@ -1,14 +1,12 @@
 import Layout from "../components/Layout";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Container, Row, Col, Button } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
-// import withUnprotected from "../hook/withUnprotected";
-// import { withPublic } from "../context/route";
 
-const LandingPage = () => {
+const Index = () => {
   return (
     <Layout pageTitle="Landing Page">
       <Header />
@@ -30,7 +28,7 @@ const LandingPage = () => {
 
         <Row className="justify-content-md-center">
             <Col md="auto">
-                <Link href="/login" role="button"><a><Button className="btn btn-warning btn-lg">PLAY NOW</Button></a></Link>
+                <Link href="/login" role="button"><a className="btn btn-warning btn-lg">PLAY NOW</a></Link>
             </Col>
         </Row>
 
@@ -51,5 +49,5 @@ const LandingPage = () => {
     </Layout>
   );
 };
-export default LandingPage;
+export default Index;
 
