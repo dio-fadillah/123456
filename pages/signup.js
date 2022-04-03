@@ -6,11 +6,11 @@ import React, { useState } from "react";
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
-import { auth, SignUp, GetSignUpErrorMessage } from "../services/firebase";
+import { auth, SignUp, GetSignUpErrorMessage } from "../service/firebase";
 // import firebase from '../services/firebase'
 import FormError from "../components/forms/error";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import withUnprotected from "../hoc/withUnprotected";
+import withUnprotected from "../hook/withUnprotected";
 
 // console.log(firebase)
 
