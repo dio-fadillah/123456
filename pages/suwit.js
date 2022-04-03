@@ -176,6 +176,7 @@ const Suwit = () => {
             <Col xs={2}>
                 <Row className="justify-content-md-center">
                     <Col md="auto">
+                        <h3>VS</h3>
                         <p>{GameResult}</p>
                     </Col>
                 </Row>
