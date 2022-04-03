@@ -38,10 +38,10 @@ const Header = () => {
             <NavbarBrand xs={6} href="/">Logo Disini Ya !</NavbarBrand>
           
             <NavItem>
-              <NavLink href="/">Home</NavLink>
+              <NavLink href="/"><a>Home</a></NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/gamelist">Gamelist</NavLink>
+              <NavLink href="/gamelist"><a>Gamelist</a></NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/login">Login</NavLink>

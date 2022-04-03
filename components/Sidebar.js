@@ -3,8 +3,7 @@ import {Nav} from "react-bootstrap";
 import '../styles/dashboard.module.css'
 import { RiDashboard2Fill } from "react-icons/Ri";
 import { CgProfile } from "react-icons/Cg";
-import { MdOutlineRedeem, MdLiveHelp, MdLogout } from "react-icons/Md";
-import { SignOut } from "../service/firebase";
+import { MdOutlineRedeem, MdLiveHelp } from "react-icons/Md";
 
 
 const Sidebar = props => {
@@ -22,19 +21,16 @@ const Sidebar = props => {
                 <Nav.Link href="/home"><h4><RiDashboard2Fill/> My Dashboard</h4></Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link href="/myprofiles"><h4><CgProfile/> My Profiles</h4></Nav.Link>
+                <Nav.Link eventKey="/profile"><h4><CgProfile/> My Profiles</h4></Nav.Link>
             </Nav.Item>
             <Nav.Item>
                 <Nav.Link eventKey="link-2"><h4><MdOutlineRedeem/> Redeem Voucher</h4></Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link href="/gamelist"><h4><MdOutlineRedeem/> Gamelist</h4></Nav.Link>
+                <Nav.Link eventKey="link-2"><h4><MdOutlineRedeem/> Gamelist</h4></Nav.Link>
             </Nav.Item>
             <Nav.Item>
                 <Nav.Link eventKey="link-2"><h4><MdLiveHelp/> Ask for help</h4></Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-                <Nav.Link onClick={SignOut} ><h4><MdLogout/> Logout</h4></Nav.Link>
             </Nav.Item>
             </Nav>
           

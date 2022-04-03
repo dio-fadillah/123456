@@ -8,11 +8,10 @@ import styles from '../styles/Home.module.css'
 import Result from "../components/dashboard/Result";
 import Sidebar from "../components/Sidebar";
 import Link from 'next/link'
-import { withProtected } from "../context/route";
 
 
 
-const MyProfiles = props => {
+const Dashboard = props => {
     const [inputValue, setInputValue] = useState({ email: '', password: '' })
     const { email, password } = inputValue
 
@@ -121,4 +120,4 @@ const MyProfiles = props => {
         );
   };
 
-  export default withProtected(MyProfiles)
+  export default Dashboard
