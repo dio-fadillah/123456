@@ -11,27 +11,52 @@ import { useState } from "react";
 const Suwit = () => {
     
     const [enableHover, setenableHover] = useState(true)
-    const [GameResult, setGameResult] = useState('')
     const [enableClick, setenableClick] = useState(true)
+    const [GameResult, setGameResult] = useState('')
+    const [matchCount, setmatchCount] = useState(0)
+    const [winCount, setwinCount] = useState(0)
+    const [drawCount, setdrawCount] = useState(0)
+    const [loseCount, setloseCount] = useState(0)
+    
+
+    const endGame =() =>{
+        console.log('udahan bang')
+    }
 
 
     const onRefresh = () =>{
 
         for (let i = 0; i < 3; i++) {
-            document.querySelectorAll('.com')[i].style.backgroundColor = ''
-            document.querySelectorAll('.choose')[i].style.backgroundColor = ''
+            document.querySelectorAll('.com')[i].style.backgroundColor = '';
+            document.querySelectorAll('.choose')[i].style.backgroundColor = '';
 
-            setenableHover(true)
-            setGameResult('')
-        } 
+        }
+
+        setenableHover(true)
+        setGameResult('')
+        console.log('match', matchCount)
+        console.log('draw', drawCount)
+        console.log('win', winCount)
+        console.log('lose', loseCount)
+    
+
+    }
+
+    const replay = () =>{
+        if (confirm("Replay this game ?")) {
+            onRefresh
+        } else {
+            endGame
+        }
 
     }
 
     
 
     const onChoose = (e) => {
-        
         if (!enableHover) return 0
+
+        setmatchCount(matchCount +1)
 
         const playerChoice = e.target.alt
         e.target.style.background = '#FF0000'
@@ -51,19 +76,18 @@ const Suwit = () => {
         }
 
         if(comChoice === playerChoice){
-            setGameResult('DRAW PAK')
+            setGameResult('DRAW')
+            setdrawCount(drawCount+1)
         }else if (playerChoice === "batu" && comChoice === "gunting" || (playerChoice === "gunting" && comChoice === "kertas") || playerChoice === "kertas" && comChoice === "batu"){
-            setGameResult('PLAYER MENANG')
+            setGameResult('PLAYER WIN')
+            setwinCount(winCount +1)
         }else{
-            setGameResult('KOMPUTER MENANG')
+            setGameResult('COM WIN')
+            setloseCount(loseCount+1)
         }
 
-        setenableHover(false)
-        
-       
 
-  
-
+        setenableHover(false)    
     }  
 
     // const onHover = (e) => {
@@ -90,14 +114,46 @@ const Suwit = () => {
             </Col>
         </Row>
 
+        <Row>
+            <Col className="p-5" xs={3}>
+                <Row className="justify-content-md-center">
+                <h5>Match Count : </h5>
+                <h5>{matchCount}</h5>
+                </Row>
+            </Col>
+
+            <Col className="p-5" xs={3}>
+                <Row className="justify-content-md-center">
+                <h5>Draw Count : </h5>
+                <h5>{drawCount}</h5>
+                
+                </Row>
+            </Col>
+
+            <Col className="p-5" xs={3}>
+                <Row className="justify-content-md-center">
+                <h5>Win Count : </h5>
+                <h5>{winCount}</h5>
+                
+                </Row>
+            </Col>
+
+            <Col className="p-5" xs={3}>
+                <Row className="justify-content-md-center">
+                    <h5>Lose Count :</h5> 
+                    <h5>{loseCount}</h5>
+                </Row>
+            </Col>
+        </Row>  
+
 
 
 
         <Row className="justify-content-md-center">
-            <Col className="p-5" xs="4">
+            <Col xs={4}>
                 <Row className="justify-content-md-center">
                     <Col md="auto">
-                        <p>Player</p>
+                        <h2>Player</h2>
                     </Col>
                 </Row>
                 <Row className="justify-content-md-center">
@@ -117,21 +173,22 @@ const Suwit = () => {
                 </Row>
             </Col>
 
-            <Col xs="4">
-
-                <Row className="text-center">
-                    <Col className="align-items-center" xs="5">
+            <Col xs={2}>
+                <Row className="justify-content-md-center">
+                    <Col md="auto">
                         <p>{GameResult}</p>
                     </Col>
                 </Row>
-        
+
             </Col>
 
             
-            <Col className="p-5" xs="4">
+
+            
+            <Col xs="4">
                 <Row className="justify-content-md-center">
                     <Col md="auto">
-                        <p>Com</p>
+                        <h2>Com</h2>
                     </Col>
                 </Row>
                 <Row className="justify-content-md-center">

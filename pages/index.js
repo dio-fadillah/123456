@@ -5,8 +5,8 @@ import { Container, Row, Col, Button } from 'reactstrap';
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
-import withUnprotected from "../hook/withUnprotected";
-import { withPublic } from "../context/route";
+// import withUnprotected from "../hook/withUnprotected";
+// import { withPublic } from "../context/route";
 
 const LandingPage = () => {
   return (
@@ -51,5 +51,5 @@ const LandingPage = () => {
     </Layout>
   );
 };
-export default withPublic(LandingPage);
+export default LandingPage;
 
