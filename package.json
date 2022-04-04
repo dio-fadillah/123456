@@ -27,6 +27,7 @@
     "react-fontawesome": "^1.7.1",
     "react-hook-form": "^7.28.1",
     "react-icons": "^4.3.1",
+    "react-player": "^2.10.0",
     "react-redux": "^7.2.6",
     "reactstrap": "^9.0.1",
     "redux": "^4.1.2",
@@ -36,6 +37,5 @@
   "devDependencies": {
     "eslint": "8.11.0",
     "eslint-config-next": "12.1.0"
-    
   }
 }
