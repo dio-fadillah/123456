@@ -27,13 +27,13 @@ const Gamelist = () => {
             <Row>
                 <Col className="p-5" xs={3}>
                     <Row className="justify-content-md-center">
-                        <h2>Rock Paper Scissors</h2>
+                        <h4>Rock Paper Scissors</h4>
                         <p>Rock paper scissors is a hand game, usually played between two people.  </p>
                         {/* <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/> */}
                         <ReactPlayer url="https://www.youtube.com/watch?v=ND4fd6yScBM" />
                         <p></p>
                         <Col md="auto">
-                            <Link className="btn btn-warning btn-lg" href="/login" role="button"><a>PLAY NOW</a></Link>
+                            <Link href="/suwit" role="button"><a className="btn btn-warning btn-md">PLAY NOW</a></Link>
                         </Col>
                         <p></p>
                     </Row>
@@ -41,13 +41,13 @@ const Gamelist = () => {
 
                 <Col className="p-5" xs={3}>
                     <Row className="justify-content-md-center">
-                        <h2>Mobile Legends</h2>
+                        <h4>Mobile Legends</h4>
                         <p>A mobile multiplayer online battle arena game developed and published by Moonton</p>
                         {/* <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/> */}
                         <ReactPlayer url="https://youtu.be/cftqT7au9gk" />
                         <p></p>
                         <Col md="auto">
-                            <Link className="btn btn-warning btn-lg" href="/login" role="button"><a>PLAY NOW</a></Link>
+                            <Link href="/login" role="button"><a className="btn btn-warning btn-md">PLAY NOW</a></Link>
                         </Col>
                         <p></p>
                     </Row>
@@ -55,13 +55,13 @@ const Gamelist = () => {
 
                 <Col className="p-5" xs={3}>
                     <Row className="justify-content-md-center">
-                        <h2>PUBG Mobile</h2>
+                        <h4>PUBG Mobile</h4>
                         <p>A free-to-play battle royale video game developed by LightSpeed and Quantum Studio</p>
                         {/* <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/> */}
                         <ReactPlayer url="https://youtu.be/_LTiEXMc5J0" />
                         <p></p>
                         <Col md="auto">
-                            <Link className="btn btn-warning btn-lg" href="/login" role="button"><a>PLAY NOW</a></Link>
+                            <Link href="/login" role="button"><a className="btn btn-warning btn-md">PLAY NOW</a></Link>
                         </Col>
                         <p></p>
                     </Row>
@@ -69,13 +69,13 @@ const Gamelist = () => {
 
                 <Col className="p-5" xs={3}>
                     <Row className="justify-content-md-center">
-                        <h2>Candy Crush</h2>
+                        <h4>Candy Crush</h4>
                         <p>Switch and match your way through hundreds of levels in this divine puzzle adventure</p>
                         {/* <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/> */}
                         <ReactPlayer url="https://www.youtube.com/watch?v=j6QCe_AqaZ4" />
                         <p></p>
                         <Col md="auto">
-                            <Link className="btn btn-warning btn-lg" href="/login" role="button"><a>PLAY NOW</a></Link>
+                            <Link href="/login" role="button"><a className="btn btn-warning btn-md">PLAY NOW</a></Link>
                         </Col>
                         <p></p>
                     </Row>

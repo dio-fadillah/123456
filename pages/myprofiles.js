@@ -75,7 +75,7 @@ const MyProfiles = props => {
                 </Col>
 
                 <Col className="p-5" xs="3">
-                    <Link href="/editprofiles" role="button"><a className="btn btn-warning btn-lg">Edit</a></Link>
+                    <Link href="/editprofiles" role="button"><a className="btn btn-warning btn-md">Edit</a></Link>
                 </Col>
             </Row>
 
