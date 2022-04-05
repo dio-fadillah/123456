@@ -11,8 +11,10 @@ import { auth, SignUp, GetSignUpErrorMessage } from "../services/firebase";
 // import FormError from "../components/forms/error";
 import { signInWithEmailAndPassword } from "firebase/auth";
 // import withUnprotected from "../hoc/withUnprotected";
+import { userAuthy } from "../redux/action/counter/creator";
 
 const Login = (props) => {
+    const [userAuthy,setuserAuthy] = useState('')
     const [inputValue, setInputValue] = useState({ email: '', password: '' })
     const { email, password } = inputValue
 
@@ -27,13 +29,7 @@ const Login = (props) => {
         e.preventDefault()
         setInputValue({ ...inputValue, [e.target.name]: e.target.value });
         console.log(inputValue)
-        // try {
-        //     SignUp(inputValue)
-        // } catch(error) {
-        //     const message = GetSignUpErrorMessage(error.code)
-        //     console.log(message)
-        // }
-
+        
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
@@ -45,28 +41,12 @@ const Login = (props) => {
                 const errorMessage = error.message;
                 console.log({ errorCode, errorMessage })
             })
+
+        setuserAuthy(email)
+        console.log(userAuthy)
+        
     }
-//     const handleInput = (e) => {
-//         const { name, value } = e.target
-//         setInputValue({ ...inputValue, [name]: value })
-//     }
-//     const handleSubmit = () => {
-//         // e.preventDefault()
-//         firebase.auth.signInWithEmailAndPassword(auth, email, password)
-//             .then(userCredential => {
-//                 const isLogin = userCredential.user
-//                 console.log(isLogin)
-//                 if (isLogin) {
-//                     setInputValue({ email: '', password: '' })
-//                     props.navigate('/gamelist')
-//                 }
-//             })
-//             .catch(err => {
-//                 alert(err.message)
-//             })
-// >>>>>>> 08c912b60876ccbf36fa0f239d1402a0ee350683
-//     }
-    
+
 
   return (
     <Layout pageTitle="Login Page">
@@ -76,10 +56,10 @@ const Login = (props) => {
 
         <Container>
         <Row className="justify-content-md-center">
-        <Col className="p-5" xs="4">
+        <Col xs="6">
                 <Image src="/assets/login/lock1.jpg" alt="Picture of the author" width="604px" height="339px"/>
             </Col>
-        <Col className="p-5" xs="4">
+        <Col xs="4">
         <Form onSubmit={handleSubmit}>
         <FormGroup className={styles.outer}>
                 <FormGroup className={styles.inner}>

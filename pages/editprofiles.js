@@ -31,7 +31,7 @@ const Editprofile = (props) => {
         e.preventDefault()
         setInputValue({ ...inputValue, [e.target.name]: e.target.value });
         console.log(inputValue)
-        pdf()
+
 
     }
     

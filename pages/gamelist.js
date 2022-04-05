@@ -47,7 +47,7 @@ const Gamelist = () => {
                         <ReactPlayer url="https://youtu.be/cftqT7au9gk" />
                         <p></p>
                         <Col md="auto">
-                            <Link href="/login" role="button"><a className="btn btn-warning btn-md">PLAY NOW</a></Link>
+                            <Link href="/" role="button"><a className="btn btn-warning btn-md">PLAY NOW</a></Link>
                         </Col>
                         <p></p>
                     </Row>
@@ -61,7 +61,7 @@ const Gamelist = () => {
                         <ReactPlayer url="https://youtu.be/_LTiEXMc5J0" />
                         <p></p>
                         <Col md="auto">
-                            <Link href="/login" role="button"><a className="btn btn-warning btn-md">PLAY NOW</a></Link>
+                            <Link href="/" role="button"><a className="btn btn-warning btn-md">PLAY NOW</a></Link>
                         </Col>
                         <p></p>
                     </Row>
@@ -75,7 +75,7 @@ const Gamelist = () => {
                         <ReactPlayer url="https://www.youtube.com/watch?v=j6QCe_AqaZ4" />
                         <p></p>
                         <Col md="auto">
-                            <Link href="/login" role="button"><a className="btn btn-warning btn-md">PLAY NOW</a></Link>
+                            <Link href="/" role="button"><a className="btn btn-warning btn-md">PLAY NOW</a></Link>
                         </Col>
                         <p></p>
                     </Row>

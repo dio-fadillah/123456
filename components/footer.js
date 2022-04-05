@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <Container >
         <Row className="justify-content-md-center">
-            <Col md="auto">
+            <Col className="p-5" md="auto">
                 <p>Full stack web development bootcamp - Team 1 Task Force</p>
             </Col>
         </Row>

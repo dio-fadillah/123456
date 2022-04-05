@@ -7,33 +7,12 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Result from "../components/dashboard/Result";
 import Sidebar from "../components/Sidebar";
-
+import { useUser } from "../context/user";
 
 
 const Dashboard = props => {
-    const [inputValue, setInputValue] = useState({ email: '', password: '' })
-    const { email, password } = inputValue
-
-    const handleInput = (e) => {
-        const { name, value } = e.target
-        setInputValue({ ...inputValue, [name]: value })
-    }
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        signInWithEmailAndPassword(auth, email, password)
-            .then(userCredential => {
-                const isLogin = userCredential.user
-                console.log(isLogin)
-                if (isLogin) {
-                    setInputValue({ email: '', password: '' })
-                    props.navigate('/gamelist')
-                }
-            })
-            .catch(err => {
-                alert(err.message)
-            })
-    }
-
+    const user = useUser()
+    
     return (
         
         <Container fluid>
@@ -44,7 +23,7 @@ const Dashboard = props => {
                     <Sidebar />
                 </Col>
                 <Col  xs={9} id="page-content-wrapper">
-                    <h1>Welcome Andrea Gromico !!</h1>
+                    <h2>Welcome {user.email} !</h2>
                     <Result/>
                     <Row>
                         <Col className="p-5" xs="6">

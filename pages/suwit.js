@@ -1,28 +1,23 @@
 import Layout from "../components/Layout";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Button } from 'reactstrap';
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from "next/link";
 import { useState } from "react";
 
 
+
 const Suwit = () => {
     
     const [enableHover, setenableHover] = useState(true)
-    const [enableClick, setenableClick] = useState(true)
     const [GameResult, setGameResult] = useState('')
     const [matchCount, setmatchCount] = useState(0)
     const [winCount, setwinCount] = useState(0)
     const [drawCount, setdrawCount] = useState(0)
     const [loseCount, setloseCount] = useState(0)
     
-
-    const endGame =() =>{
-        console.log('udahan bang')
-    }
-
 
     const onRefresh = () =>{
 
@@ -34,20 +29,15 @@ const Suwit = () => {
 
         setenableHover(true)
         setGameResult('')
+
+    }
+
+    const quitgame = () =>{
         console.log('match', matchCount)
         console.log('draw', drawCount)
         console.log('win', winCount)
         console.log('lose', loseCount)
-    
-
-    }
-
-    const replay = () =>{
-        if (confirm("Replay this game ?")) {
-            onRefresh
-        } else {
-            endGame
-        }
+        window.location.assign('/dashboard');
 
     }
 
@@ -212,10 +202,19 @@ const Suwit = () => {
         </Row>
 
         <Row className="justify-content-md-center">
-            <Col className="p-5" md="auto">
+            <Col md="auto">
                 <Image src="/assets/suwit/refresh.png" onClick={onRefresh} alt="batu" width="80px" height="80px"/>
+                
             </Col>
         </Row>
+
+        <Row className="justify-content-md-center">
+            <Col  md="auto">
+            <Button onClick={quitgame} variant='contained' className="btn btn-warning btn-md btn-block">Quit Game</Button>
+            </Col>
+        </Row>
+
+        
       </Container>
       </main>
 

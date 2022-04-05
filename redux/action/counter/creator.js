@@ -1,10 +1,4 @@
-export const incrementCounter = (type, payload) => (dispatch) =>
-	dispatch({
-		type,
-		payload
-	})
-
-export const decrementCounter = (type, payload) => (dispatch) =>
+export const userAuthy = (type, payload) => (dispatch) =>
 	dispatch({
 		type,
 		payload
