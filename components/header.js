@@ -10,6 +10,7 @@ import {
   NavLink,
   Row
 } from 'reactstrap';
+import Image from 'next/image';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +22,7 @@ const Header = () => {
   });
 
   const handleScroll = () => {
-    if (window.scrollY > 90) {
+    if (window.scrollY >90) {
       setSticky(true);
     } else if (window.scrollY < 90) {
       setSticky(false);
@@ -35,7 +36,7 @@ const Header = () => {
       <Container>
         <Collapse isOpen={isOpen} navbar>
           <NavbarToggler className="m-auto" onClick={toggle} />
-            <NavbarBrand xs={6} href="/">Logo Disini Ya !</NavbarBrand>
+            <NavbarBrand xs={6} href="/">LOGO DISINI</NavbarBrand>
           
             <NavItem>
               <NavLink href="/">Home</NavLink>
