@@ -48,8 +48,8 @@ const MyProfiles = props => {
                     
                     <Col  xs={9} id="page-content-wrapper">
                     <Row className="justify-content-md">
-                        <Col className="p-5" xs="2">
-                            <Image src="/assets/home/01.jpg" alt="Picture of the author" width="100px" height="100px"/>
+                        <Col className="p-5" xs="3">
+                            <Image src="/assets/editprofiles/avatar.png" alt="Picture of the author" width="100px" height="100px"/>
                         </Col>
 
                         <Col className="p-5" xs="6">
@@ -58,40 +58,9 @@ const MyProfiles = props => {
                         </Col>                                   
                     </Row>
                    
-                    {/* <FormGroup className={styles.outer}>
-                <FormGroup className={styles.inner}>
-                    <Form onSubmit={handleSubmit}>
-                        <h1>Log in</h1>
-
-                        <FormGroup className="form-group">
-                            <Label className="label">Email</Label>
-                            <Input id='email' name="email" type="email" placeholder="Enter email" onChange={handleInput} />
-                        </FormGroup>
-
-                        <FormGroup className="form-group">
-                            <Label className="label">Password</Label>
-                            <Input id='password' name="password" type="password" placeholder="Enter password" onChange={handleInput} />
-                        </FormGroup>
-
-                        <FormGroup>
-                            <FormGroup className="custom-control custom-checkbox">
-                                <Input type="checkbox" className="custom-control-input" id="customCheck1" />
-                                <Label className="custom-control-label" htmlFor="customCheck1"> Remember me</Label>
-                            </FormGroup>
-                        </FormGroup>
-
-                        <Button type="submit" className="btn btn-dark btn-lg btn-block">Sign in</Button>
-                        
-                        <p className="forgot-password text-right">
-                            <a href="https://wa.me/+6212345678"> Forgot password?</a>
-                        </p>
-
-                    </Form>
-                </FormGroup>
-                    </FormGroup> */}
-
+                    
             <Row className="justify-content-md-center">
-                <Col className="p-5" xs="2">
+                <Col className="p-5" xs="3">
                     <p>User Name</p>
                     <p>Email</p>
                     <p>Phone Number</p>
@@ -105,8 +74,8 @@ const MyProfiles = props => {
                     <p>1234345768</p>
                 </Col>
 
-                <Col className="p-5" xs="4">
-                    <Link href="/login" role="button"><a className="btn btn-warning btn-lg">Edit Mang</a></Link>
+                <Col className="p-5" xs="3">
+                    <Link href="/editprofiles" role="button"><a className="btn btn-warning btn-md">Edit</a></Link>
                 </Col>
             </Row>
 

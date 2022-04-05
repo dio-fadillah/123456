@@ -98,5 +98,5 @@ const Gamelist = () => {
         </Layout>
     );
 };
-export default Gamelist;
 
+export default Gamelist;
