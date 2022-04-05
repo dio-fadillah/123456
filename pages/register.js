@@ -46,11 +46,11 @@ export default function Register() {
       <Container fluid>
 
         <Row className="justify-content-md-center">
-            <Col className="p-5" xs="4">
-                <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/>
+            <Col className="p-6" xs="4">
+                <Image className="justify-content-md-center" src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/>
             </Col>
 
-            <Col className="p-5" xs="4">
+            <Col className="p-6" xs="4">
             <Card>
                 <Card.Body>
                 <h2 className="text-center mb-4">Sign Up</h2>

@@ -75,11 +75,13 @@ const Login = (props) => {
       <main>
 
         <Container>
+        
         <Row className="justify-content-md-center">
-        <Col className="p-5" xs="4">
-                <Image src="/assets/login/lock1.jpg" alt="Picture of the author" width="604px" height="339px"/>
-            </Col>
-        <Col className="p-5" xs="4">
+        <Col className="p-6" xs="4">
+            <Image src="/assets/login/lock1.jpg" alt="Picture of the author" width="604px" height="339px"/>
+        </Col>
+        
+        <Col className="p-6" xs="4">
         <Form onSubmit={handleSubmit}>
         <FormGroup className={styles.outer}>
                 <FormGroup className={styles.inner}>
