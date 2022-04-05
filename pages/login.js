@@ -8,7 +8,7 @@ import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import { auth, SignUp, GetSignUpErrorMessage } from "../services/firebase";
 // import firebase from '../services/firebase'
-import FormError from "../components/forms/error";
+// import FormError from "../components/forms/error";
 import { signInWithEmailAndPassword } from "firebase/auth";
 // import withUnprotected from "../hoc/withUnprotected";
 
