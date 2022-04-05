@@ -40,12 +40,15 @@ const Header = () => {
             <NavItem>
               <NavLink href="/">Home</NavLink>
             </NavItem>
+
             <NavItem>
               <NavLink href="/gamelist">Gamelist</NavLink>
             </NavItem>
+
             <NavItem>
               <NavLink href="/login">Login</NavLink>
             </NavItem>
+            
             <NavItem>
               <NavLink href="/signup">Signup</NavLink>
             </NavItem>

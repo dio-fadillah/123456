@@ -5,6 +5,7 @@ import { Container, Row, Col } from 'reactstrap';
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
+import ReactPlayer from 'react-player'
 
 const Gamelist = () => {
   return (
@@ -26,12 +27,13 @@ const Gamelist = () => {
             <Row>
                 <Col className="p-5" xs={3}>
                     <Row className="justify-content-md-center">
-                        <h2>GAME 1</h2>
-                        <p>ini adalah deskripsi game yang berubah redux</p>
-                        <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/>
+                        <h2>Rock Paper Scissors</h2>
+                        <p>Rock paper scissors is a hand game, usually played between two people.  </p>
+                        {/* <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/> */}
+                        <ReactPlayer url="https://www.youtube.com/watch?v=ND4fd6yScBM" />
                         <p></p>
                         <Col md="auto">
-                            <Link className="btn btn-warning btn-lg" href="/login" role="button">PLAY NOW</Link>
+                            <Link className="btn btn-warning btn-lg" href="/login" role="button"><a>PLAY NOW</a></Link>
                         </Col>
                         <p></p>
                     </Row>
@@ -39,12 +41,13 @@ const Gamelist = () => {
 
                 <Col className="p-5" xs={3}>
                     <Row className="justify-content-md-center">
-                        <h2>GAME 2</h2>
-                        <p>ini adalah deskripsi game yang berubah redux</p>
-                        <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/>
+                        <h2>Mobile Legends</h2>
+                        <p>A mobile multiplayer online battle arena game developed and published by Moonton</p>
+                        {/* <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/> */}
+                        <ReactPlayer url="https://youtu.be/cftqT7au9gk" />
                         <p></p>
                         <Col md="auto">
-                            <Link className="btn btn-warning btn-lg" href="/login" role="button">PLAY NOW</Link>
+                            <Link className="btn btn-warning btn-lg" href="/login" role="button"><a>PLAY NOW</a></Link>
                         </Col>
                         <p></p>
                     </Row>
@@ -52,12 +55,13 @@ const Gamelist = () => {
 
                 <Col className="p-5" xs={3}>
                     <Row className="justify-content-md-center">
-                        <h2>GAME 3</h2>
-                        <p>ini adalah deskripsi game yang berubah redux</p>
-                        <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/>
+                        <h2>PUBG Mobile</h2>
+                        <p>A free-to-play battle royale video game developed by LightSpeed and Quantum Studio</p>
+                        {/* <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/> */}
+                        <ReactPlayer url="https://youtu.be/_LTiEXMc5J0" />
                         <p></p>
                         <Col md="auto">
-                            <Link className="btn btn-warning btn-lg" href="/login" role="button">PLAY NOW</Link>
+                            <Link className="btn btn-warning btn-lg" href="/login" role="button"><a>PLAY NOW</a></Link>
                         </Col>
                         <p></p>
                     </Row>
@@ -65,12 +69,13 @@ const Gamelist = () => {
 
                 <Col className="p-5" xs={3}>
                     <Row className="justify-content-md-center">
-                        <h2>GAME 4</h2>
-                        <p>ini adalah deskripsi game yang berubah redux</p>
-                        <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/>
+                        <h2>Candy Crush</h2>
+                        <p>Switch and match your way through hundreds of levels in this divine puzzle adventure</p>
+                        {/* <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/> */}
+                        <ReactPlayer url="https://www.youtube.com/watch?v=j6QCe_AqaZ4" />
                         <p></p>
                         <Col md="auto">
-                            <Link className="btn btn-warning btn-lg" href="/login" role="button">PLAY NOW</Link>
+                            <Link className="btn btn-warning btn-lg" href="/login" role="button"><a>PLAY NOW</a></Link>
                         </Col>
                         <p></p>
                     </Row>
@@ -83,5 +88,5 @@ const Gamelist = () => {
     </Layout>
   );
 };
-export default Gamelist;
 
+export default Gamelist;
