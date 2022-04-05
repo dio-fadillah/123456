@@ -8,9 +8,9 @@ import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import { auth, SignUp, GetSignUpErrorMessage } from "../services/firebase";
 // import firebase from '../services/firebase'
-import FormError from "../components/forms/error";
-import { signInWithEmailAndPassword } from "firebase/auth";
+// import FormError from "../components/forms/error";
 // import withUnprotected from "../hoc/withUnprotected";
+// import pdf from '../components/pdf'
 
 const Editprofile = (props) => {
 
@@ -31,6 +31,7 @@ const Editprofile = (props) => {
         e.preventDefault()
         setInputValue({ ...inputValue, [e.target.name]: e.target.value });
         console.log(inputValue)
+        pdf()
 
     }
     
@@ -54,23 +55,8 @@ const Editprofile = (props) => {
                     
                        
 
-                        <FormGroup className="form-group">
-                            <Label className="label">Username</Label>
-                            <Input 
-                            id='username' 
-                            name="username" 
-                            type="text" 
-                            variant='filled'
-                            placeholder="" 
-                            value={username}
-                            onChange={handlerOnchange}
-                            // {...register("email", { required: true })}
-                            />
-                            {/* <FormError error={errors.email} /> */}
-                        </FormGroup>
-
-                        <FormGroup className="form-group">
-                            <Label className="label">Email</Label>
+                    <FormGroup className="form-group">
+                            <Label className="label">Fullname</Label>
                             <Input 
                             id='email' 
                             name="email" 
