@@ -25,10 +25,10 @@ const Gamelist = () => {
                 </Col>
             </Row>
             <Row>
-                <Col className="p-5" xs={3}>
+                <Col className="p-6" xs={3}>
                     <Row className="justify-content-md-center">
                         <h4>Rock Paper Scissors</h4>
-                        <p>Rock paper scissors is a hand game, usually played between two people.  </p>
+                        <p>Rock paper scissors is a hand game, usually played between two people choosing rock, paper, or scissor.  </p>
                         {/* <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/> */}
                         <ReactPlayer url="https://www.youtube.com/watch?v=ND4fd6yScBM" />
                         <p></p>
@@ -39,7 +39,7 @@ const Gamelist = () => {
                     </Row>
                 </Col>
 
-                <Col className="p-5" xs={3}>
+                <Col className="p-6" xs={3}>
                     <Row className="justify-content-md-center">
                         <h4>Mobile Legends</h4>
                         <p>A mobile multiplayer online battle arena game developed and published by Moonton</p>
@@ -53,7 +53,7 @@ const Gamelist = () => {
                     </Row>
                 </Col>
 
-                <Col className="p-5" xs={3}>
+                <Col className="p-6" xs={3}>
                     <Row className="justify-content-md-center">
                         <h4>PUBG Mobile</h4>
                         <p>A free-to-play battle royale video game developed by LightSpeed and Quantum Studio</p>
@@ -67,7 +67,7 @@ const Gamelist = () => {
                     </Row>
                 </Col>
 
-                <Col className="p-5" xs={3}>
+                <Col className="p-6" xs={3}>
                     <Row className="justify-content-md-center">
                         <h4>Candy Crush</h4>
                         <p>Switch and match your way through hundreds of levels in this divine puzzle adventure</p>
