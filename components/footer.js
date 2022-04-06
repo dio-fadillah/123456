@@ -5,6 +5,7 @@ import { Container, Row, Col } from 'reactstrap';
 // import { BsFacebook } from "react-icons/Bs";
 // import { BsWhatsapp } from "react-icons/Bs";
 
+
 const Footer = () => {
   return (
     <Container >
