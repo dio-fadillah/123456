@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-title-in-document-head */
+// eslint-disable-next-line @next/next/no-document-import-in-page
 import { Head } from "next/document"
 import { Container, Box } from "reactstrap"
 import { Navbar } from "reactstrap"
@@ -11,6 +13,7 @@ const Authenticate = ({ children, title }) => {
     return (
         <>
         <Head>
+           
             <title>{pageTitle}</title>
         </Head>
         <Navbar>

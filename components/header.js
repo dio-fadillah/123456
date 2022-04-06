@@ -43,7 +43,7 @@ const Header = () => {
             </NavItem>
 
             <NavItem>
-              <NavLink href="/gamelist">Gamelist</NavLink>
+              <NavLink href="/dashboard">Dashboard</NavLink>
             </NavItem>
 
             <NavItem>

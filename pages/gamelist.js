@@ -9,6 +9,7 @@ import ReactPlayer from 'react-player'
 import { useEffect, useState } from "react";
 import { collection, onSnapshot } from "firebase/firestore";
 import db from "../services/firebase";
+import withProtected from "../context/protected";
 
 
 const Gamelist = () => {
@@ -47,7 +48,6 @@ const Gamelist = () => {
                         <ReactPlayer url={gamelist.gamePlayer} />
                         <p></p>
                         <Col md="auto">
-<<<<<<< HEAD
                             <Link href="/suwit" role="button"><a className="btn btn-warning btn-md">PLAY NOW</a></Link>
                         </Col>
                         <p></p>
@@ -91,9 +91,6 @@ const Gamelist = () => {
                         <p></p>
                         <Col md="auto">
                             <Link href="/" role="button"><a className="btn btn-warning btn-md">PLAY NOW</a></Link>
-=======
-                            <Link className="btn btn-warning btn-lg" href="/suwit" role="button"><a>PLAY NOW</a></Link>
->>>>>>> 496d1d65f0a8b8ca41fd575a8b62f2241ed5586d
                         </Col>
                         <p></p>
                     </Row>
@@ -109,4 +106,4 @@ const Gamelist = () => {
   );
 };
 
-export default Gamelist;
+export default withProtected(Gamelist);
