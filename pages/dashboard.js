@@ -1,10 +1,7 @@
-import Layout from "../components/Layout";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Container, Button, Form, FormGroup, Label, Input, Col, Row } from 'reactstrap'
 import React, { useState } from "react";
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 import Result from "../components/dashboard/Result";
 import Sidebar from "../components/Sidebar";
 

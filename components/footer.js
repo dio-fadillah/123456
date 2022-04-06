@@ -1,9 +1,9 @@
 import { Container, Row, Col } from 'reactstrap';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faInstagram } from '@fortawesome/free-solid-svg-icons'
-import { BsInstagram } from "react-icons/bs";
-import { BsFacebook } from "react-icons/bs";
-import { BsWhatsapp } from "react-icons/bs";
+import { BsInstagram } from "react-icons";
+import { BsFacebook } from "react-icons";
+import { BsWhatsapp } from "react-icons";
 
 const Footer = () => {
   return (
