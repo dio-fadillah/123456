@@ -10,7 +10,8 @@ import { auth, SignUp, GetSignUpErrorMessage } from "../services/firebase";
 // import firebase from '../services/firebase'
 // import FormError from "../components/forms/error";
 import { signInWithEmailAndPassword } from "firebase/auth";
-// import withUnprotected from "../hoc/withUnprotected";
+
+import withUnprotected from "../context/unprotected";
 
 const Login = (props) => {
     const [inputValue, setInputValue] = useState({ email: '', password: '' })
@@ -75,11 +76,13 @@ const Login = (props) => {
       <main>
 
         <Container>
+        
         <Row className="justify-content-md-center">
-        <Col className="p-5" xs="4">
-                <Image src="/assets/login/lock1.jpg" alt="Picture of the author" width="604px" height="339px"/>
-            </Col>
-        <Col className="p-5" xs="4">
+        <Col className="p-6" xs="4">
+            <Image src="/assets/login/lock1.jpg" alt="Picture of the author" width="604px" height="339px"/>
+        </Col>
+        
+        <Col className="p-6" xs="4">
         <Form onSubmit={handleSubmit}>
         <FormGroup className={styles.outer}>
                 <FormGroup className={styles.inner}>
@@ -145,5 +148,6 @@ const Login = (props) => {
     </Layout>
   );
 };
-export default Login;
+//export default Login;
+export default withUnprotected(Login)
 

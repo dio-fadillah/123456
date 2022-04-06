@@ -8,31 +8,36 @@ import styles from '../styles/Home.module.css'
 import Result from "../components/dashboard/Result";
 import Sidebar from "../components/Sidebar";
 
+import { useUser } from "../context/user";
+import withProtected from "../context/protected";
+
 
 
 const Dashboard = props => {
-    const [inputValue, setInputValue] = useState({ email: '', password: '' })
-    const { email, password } = inputValue
+    const user = useUser()
+    const { email, uid } = user
+    // const [inputValue, setInputValue] = useState({ email: '', password: '' })
+    // const { email, password } = inputValue
 
-    const handleInput = (e) => {
-        const { name, value } = e.target
-        setInputValue({ ...inputValue, [name]: value })
-    }
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        signInWithEmailAndPassword(auth, email, password)
-            .then(userCredential => {
-                const isLogin = userCredential.user
-                console.log(isLogin)
-                if (isLogin) {
-                    setInputValue({ email: '', password: '' })
-                    props.navigate('/gamelist')
-                }
-            })
-            .catch(err => {
-                alert(err.message)
-            })
-    }
+    // const handleInput = (e) => {
+    //     const { name, value } = e.target
+    //     setInputValue({ ...inputValue, [name]: value })
+    // }
+    // const handleSubmit = (e) => {
+    //     e.preventDefault()
+    //     signInWithEmailAndPassword(auth, email, password)
+    //         .then(userCredential => {
+    //             const isLogin = userCredential.user
+    //             console.log(isLogin)
+    //             if (isLogin) {
+    //                 setInputValue({ email: '', password: '' })
+    //                 props.navigate('/gamelist')
+    //             }
+    //         })
+    //         .catch(err => {
+    //             alert(err.message)
+    //         })
+    // }
 
     return (
         
@@ -74,4 +79,5 @@ const Dashboard = props => {
         );
   };
 
-export default Dashboard
+//export default Dashboard
+export default withProtected(Dashboard)
