@@ -1,3 +1,4 @@
+// eslint-disable-next-line @next/next/no-document-import-in-page
 import { Head } from "next/document"
 import { Container, Box } from "reactstrap"
 import { Navbar } from "reactstrap"
@@ -11,7 +12,7 @@ const Authenticate = ({ children, title }) => {
     return (
         <>
         <Head>
-            <title>{pageTitle}</title>
+            {pageTitle}
         </Head>
         <Navbar>
             <ButtonToolbar>
