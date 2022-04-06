@@ -12,12 +12,12 @@ const Authenticate = ({ children, title }) => {
     return (
         <>
         
-        <Box component='main' sx={{ pt: '64px'}}>
+        <Container component='main' sx={{ pt: '64px'}}>
             <Container>
                 {children}
             </Container>
             
-        </Box>
+        </Container>
         </>
     )
 }
