@@ -115,11 +115,11 @@ const Signup = () => {
       <Container fluid>
         
         <Row className="justify-content-md-center">
-            <Col className="p-5" xs="4">
-                <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/>
+            <Col xs="6">
+                <Image src="/assets/login/lock1.jpg" alt="Picture of the author" width="604px" height="339px                                                                                                                                                                    "/>
             </Col>
 
-            <Col className="p-5" xs="4">
+            <Col xs="4">
                 <FormGroup className={styles.inner}>
                     <Form onSubmit={handleSubmit}>
                         <h1>User Registration</h1>
@@ -160,7 +160,7 @@ const Signup = () => {
                             id='confirmPassword' 
                             name='confirmPassword' 
                             type='password' 
-                            placeholder='Konfirmasi password'
+                            placeholder='Confirm Password'
                             variant='filled'
                             value={password1}
                             // {...register("confirmPassword", { 

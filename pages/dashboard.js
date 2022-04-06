@@ -7,14 +7,21 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Result from "../components/dashboard/Result";
 import Sidebar from "../components/Sidebar";
+<<<<<<< HEAD
+import { useUser } from "../context/user";
+=======
 
 import { useUser } from "../context/user";
 import withProtected from "../context/protected";
 
+>>>>>>> 496d1d65f0a8b8ca41fd575a8b62f2241ed5586d
 
 
 const Dashboard = props => {
     const user = useUser()
+<<<<<<< HEAD
+    
+=======
     const { email, uid } = user
     // const [inputValue, setInputValue] = useState({ email: '', password: '' })
     // const { email, password } = inputValue
@@ -39,6 +46,7 @@ const Dashboard = props => {
     //         })
     // }
 
+>>>>>>> 496d1d65f0a8b8ca41fd575a8b62f2241ed5586d
     return (
         
         <Container fluid>
@@ -49,7 +57,7 @@ const Dashboard = props => {
                     <Sidebar />
                 </Col>
                 <Col  xs={9} id="page-content-wrapper">
-                    <h1>Welcome Andrea Gromico !!</h1>
+                    <h2>Welcome {user.email} !</h2>
                     <Result/>
                     <Row>
                         <Col className="p-5" xs="6">

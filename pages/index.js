@@ -34,7 +34,7 @@ const LandingPage = () => {
 
         <Row className="justify-content-md-center">
             <Col md="auto">
-                <Link href="/login" role="button"><a><Button className="btn btn-warning btn-lg">PLAY NOW</Button></a></Link>
+                <Link href="/dashboard" role="button"><a><Button className="btn btn-warning btn-lg">PLAY NOW</Button></a></Link>
             </Col>
         </Row>
 

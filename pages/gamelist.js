@@ -47,7 +47,53 @@ const Gamelist = () => {
                         <ReactPlayer url={gamelist.gamePlayer} />
                         <p></p>
                         <Col md="auto">
+<<<<<<< HEAD
+                            <Link href="/suwit" role="button"><a className="btn btn-warning btn-md">PLAY NOW</a></Link>
+                        </Col>
+                        <p></p>
+                    </Row>
+                </Col>
+
+                <Col className="p-5" xs={3}>
+                    <Row className="justify-content-md-center">
+                        <h4>Mobile Legends</h4>
+                        <p>A mobile multiplayer online battle arena game developed and published by Moonton</p>
+                        {/* <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/> */}
+                        <ReactPlayer url="https://youtu.be/cftqT7au9gk" />
+                        <p></p>
+                        <Col md="auto">
+                            <Link href="/" role="button"><a className="btn btn-warning btn-md">PLAY NOW</a></Link>
+                        </Col>
+                        <p></p>
+                    </Row>
+                </Col>
+
+                <Col className="p-5" xs={3}>
+                    <Row className="justify-content-md-center">
+                        <h4>PUBG Mobile</h4>
+                        <p>A free-to-play battle royale video game developed by LightSpeed and Quantum Studio</p>
+                        {/* <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/> */}
+                        <ReactPlayer url="https://youtu.be/_LTiEXMc5J0" />
+                        <p></p>
+                        <Col md="auto">
+                            <Link href="/" role="button"><a className="btn btn-warning btn-md">PLAY NOW</a></Link>
+                        </Col>
+                        <p></p>
+                    </Row>
+                </Col>
+
+                <Col className="p-5" xs={3}>
+                    <Row className="justify-content-md-center">
+                        <h4>Candy Crush</h4>
+                        <p>Switch and match your way through hundreds of levels in this divine puzzle adventure</p>
+                        {/* <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/> */}
+                        <ReactPlayer url="https://www.youtube.com/watch?v=j6QCe_AqaZ4" />
+                        <p></p>
+                        <Col md="auto">
+                            <Link href="/" role="button"><a className="btn btn-warning btn-md">PLAY NOW</a></Link>
+=======
                             <Link className="btn btn-warning btn-lg" href="/suwit" role="button"><a>PLAY NOW</a></Link>
+>>>>>>> 496d1d65f0a8b8ca41fd575a8b62f2241ed5586d
                         </Col>
                         <p></p>
                     </Row>
