@@ -1,6 +1,6 @@
 import Layout from "../components/Layout";
-import Header from "../components/header";
-import Footer from "../components/footer";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import { Container, Button, Form, FormGroup, Label, Input, Col, Row } from 'reactstrap'
 import React, { useRef, useState } from "react";
 import Image from 'next/image'
@@ -9,25 +9,25 @@ import Link from 'next/link'
 import { auth, SignUp, GetSignUpErrorMessage } from "../services/firebase";
 // import firebase from '../services/firebase'
 // import FormError from "../components/forms/error";
-import { signInWithEmailAndPassword } from "firebase/auth";
-
+import { signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useUser } from "../context/user";
 import withProtected from "../context/protected";
+import db from "../services/firebase";
+import { doc, updateDoc } from "firebase/firestore";
 
 const Editprofile = (props) => {
     const user = useUser()
     const { uid } = user
+    const userIdRef = auth.currentUser.uid
+    const [inputValue, setInputValue] = useState({ fullname: '', username: '',  phone:''})
+    const { fullname, username, phone } = inputValue
+    // const [username, setusername] = useState('')
+    // const [phone, setphone] = useState('')
 
-    const [inputValue, setInputValue] = useState({ email: '', password: '',  passwordRef:'', passwordConfirm:''})
-    const [username, setusername] = useState('')
-    const [phone, setphone] = useState('')
-
-    const { email, password, passwordRef, passwordConfirm } = inputValue
 
     const handlerOnchange = (e) => {
         e.preventDefault()
         setInputValue({ ...inputValue, [e.target.name]: e.target.value });
-        console.log(inputValue)
     };
 
    
@@ -36,7 +36,17 @@ const Editprofile = (props) => {
         setInputValue({ ...inputValue, [e.target.name]: e.target.value });
         console.log(inputValue)
 
-
+      updateProfile(auth, fullname, username, phone, userIdRef)
+      .then(() => {
+        return updateDoc(doc(db, 'users', userIdRef), {
+          fullname: fullname,
+          username: username,
+          phone: phone
+        })
+      }).then(() => {
+        alert("Data terupdate")
+        window.location.assign('/myprofiles')
+      })
     }
     
 
@@ -61,12 +71,12 @@ const Editprofile = (props) => {
                     <FormGroup className="form-group">
                             <Label className="label">Fullname</Label>
                             <Input 
-                            id='email' 
-                            name="email" 
+                            id='fullname' 
+                            name="fullname" 
                             type="text" 
                             variant='filled'
-                            placeholder="" 
-                            value={email}
+                            placeholder="Enter Fullname" 
+                            value={fullname}
                             onChange={handlerOnchange}
                             // {...register("email", { required: true })}
                             />
@@ -76,12 +86,12 @@ const Editprofile = (props) => {
                         <FormGroup className="form-group">
                             <Label className="label">Username</Label>
                             <Input 
-                            id='phone' 
-                            name="phone" 
+                            id='username' 
+                            name="username" 
                             type="text" 
                             variant='filled'
-                            placeholder="" 
-                            value={phone}
+                            placeholder="Enter Username" 
+                            value={username}
                             onChange={handlerOnchange}
                             // {...register("email", { required: true })}
                             />
@@ -91,12 +101,12 @@ const Editprofile = (props) => {
                         <FormGroup className="form-group">
                             <Label className="label">Phone</Label>
                             <Input 
-                            id='passwordRef' 
-                            name="passwordRef" 
-                            type="password" 
+                            id='phone' 
+                            name="phone" 
+                            type="tel" 
                             variant='filled'
-                            placeholder="Enter password" 
-                            value={passwordRef}
+                            placeholder="Enter phone" 
+                            value={phone}
                             onChange={handlerOnchange}
                             // {...register("password", { required: true, minLength: 8 })}
                             />
@@ -104,7 +114,7 @@ const Editprofile = (props) => {
                         </FormGroup>
 
                        
-                        <Button type="submit" variant='contained' className="btn btn-warning btn-md btn-block">Edit Profile</Button>
+                        <Button type="submit" variant='contained' className="btn btn-warning btn-md btn-block">Save</Button>
                         
                         {/* <p className="forgot-password text-right">
                             <Link href="https://wa.me/+6212345678"> Forgot password?</Link>
@@ -128,4 +138,3 @@ const Editprofile = (props) => {
 };
 // export default Editprofile;
 export default withProtected(Editprofile)
-

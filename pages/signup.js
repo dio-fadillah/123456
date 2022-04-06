@@ -1,6 +1,6 @@
 import Layout from "../components/Layout";
-import Header from "../components/header";
-import Footer from "../components/footer";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import { Container, Button, Form, FormGroup, Label, Input, Col, Row, Card } from 'reactstrap'
 import React, { useState } from "react";
 import Image from 'next/image'
@@ -10,7 +10,9 @@ import { auth, SignUp, GetSignUpErrorMessage } from "../services/firebase";
 // import firebase from '../services/firebase'
 // import FormError from "../components/forms/error";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-// import withUnprotected from "../hook/withUnprotected";
+import withUnprotected from "../context/unprotected";
+import db from "../services/firebase";
+import { setDoc, collection, doc } from "firebase/firestore";
 
 // console.log(firebase)
 
@@ -37,9 +39,12 @@ const Signup = () => {
 
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
+                return setDoc(doc(db, 'users', userCredential.user.uid), {
+                    email: email
+                })
+            }).then((userCredential) => {
                 const user = userCredential.user;
                 window.location.assign('/login');
-            
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -189,5 +194,4 @@ const Signup = () => {
     </Layout>
   );
 };
-export default Signup;
-
+export default withUnprotected(Signup);
