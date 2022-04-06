@@ -8,6 +8,8 @@ import Link from 'next/link'
 
 import { useUser } from "../context/user";
 import withProtected from "../context/protected";
+import { doc, getDoc } from "firebase/firestore";
+import db, { auth } from "../services/firebase";
 
 
 const MyProfiles = props => {
@@ -15,6 +17,21 @@ const MyProfiles = props => {
     const [username, setuserName] = useState('Register your username')
     const [phone, setPhone] = useState('Register your handphone number')
     const [fullname, setFullname] = useState('Register your fullname')
+
+    async function userData() {
+        const docRef = doc(db, "users", auth.currentUser.uid)
+        const docSnap = await getDoc(docRef)
+        if (docSnap.exists()) {
+            const displayFullname = docSnap.data().fullname
+            const displayusername = docSnap.data().username
+            const displayphone = docSnap.data().phone
+            console.log(docSnap.data());
+          } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+          }
+    }
+    userData()
     
     return (
         <>
