@@ -10,9 +10,13 @@ import { auth, SignUp, GetSignUpErrorMessage } from "../services/firebase";
 // import firebase from '../services/firebase'
 // import FormError from "../components/forms/error";
 import { signInWithEmailAndPassword } from "firebase/auth";
-// import withUnprotected from "../hoc/withUnprotected";
+
+import { useUser } from "../context/user";
+import withProtected from "../context/protected";
 
 const Editprofile = (props) => {
+    const user = useUser()
+    const { uid } = user
 
     const [inputValue, setInputValue] = useState({ email: '', password: '',  passwordRef:'', passwordConfirm:''})
     const [username, setusername] = useState('')
@@ -158,5 +162,6 @@ const Editprofile = (props) => {
     </Layout>
   );
 };
-export default Editprofile;
+// export default Editprofile;
+export default withProtected(Editprofile)
 

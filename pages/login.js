@@ -10,7 +10,8 @@ import { auth, SignUp, GetSignUpErrorMessage } from "../services/firebase";
 // import firebase from '../services/firebase'
 // import FormError from "../components/forms/error";
 import { signInWithEmailAndPassword } from "firebase/auth";
-// import withUnprotected from "../hoc/withUnprotected";
+
+import withUnprotected from "../context/unprotected";
 
 const Login = (props) => {
     const [inputValue, setInputValue] = useState({ email: '', password: '' })
@@ -147,5 +148,6 @@ const Login = (props) => {
     </Layout>
   );
 };
-export default Login;
+//export default Login;
+export default withUnprotected(Login)
 

@@ -1,3 +1,25 @@
+// import withProtected from "../context/protected"
+// import AuthLayout from '../context/Authenticate'
+// import { useUser } from "../context/user"
+
+// const Protect = () => {
+//     const user = useUser()
+//     const { email, uid } = user
+//     return (
+//         <AuthLayout title="Protected Page">
+//             <div>
+//                 <p>Email: <b>{email}</b></p>
+//                 <br />
+//                 <p>UID: <b>{uid}</b></p>
+//             </div>
+            
+//         </AuthLayout>
+//     )
+// }
+
+// export default withProtected(Protect) 
+
+
 import Layout from "../components/Layout";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -8,33 +30,37 @@ import styles from '../styles/Home.module.css'
 import Result from "../components/dashboard/Result";
 import Sidebar from "../components/Sidebar";
 import Link from 'next/link'
-// import { withProtected } from "../context/route";
 
+import { useUser } from "../context/user";
+import withProtected from "../context/protected";
 
 
 const MyProfiles = props => {
-    const [inputValue, setInputValue] = useState({ email: '', password: '' })
-    const { email, password } = inputValue
+    const user = useUser()
+    const { email, uid } = user
 
-    const handleInput = (e) => {
-        const { name, value } = e.target
-        setInputValue({ ...inputValue, [name]: value })
-    }
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        signInWithEmailAndPassword(auth, email, password)
-            .then(userCredential => {
-                const isLogin = userCredential.user
-                console.log(isLogin)
-                if (isLogin) {
-                    setInputValue({ email: '', password: '' })
-                    props.navigate('/gamelist')
-                }
-            })
-            .catch(err => {
-                alert(err.message)
-            })
-    }
+    // const [inputValue, setInputValue] = useState({ email: '', password: '' })
+    // const { email, password } = inputValue
+
+    // const handleInput = (e) => {
+    //     const { name, value } = e.target
+    //     setInputValue({ ...inputValue, [name]: value })
+    // }
+    // const handleSubmit = (e) => {
+    //     e.preventDefault()
+    //     signInWithEmailAndPassword(auth, email, password)
+    //         .then(userCredential => {
+    //             const isLogin = userCredential.user
+    //             console.log(isLogin)
+    //             if (isLogin) {
+    //                 setInputValue({ email: '', password: '' })
+    //                 props.navigate('/gamelist')
+    //             }
+    //         })
+    //         .catch(err => {
+    //             alert(err.message)
+    //         })
+    //}
 
     return (
         <>
@@ -90,4 +116,5 @@ const MyProfiles = props => {
         );
   };
 
-  export default MyProfiles
+  //export default MyProfiles
+  export default withProtected(MyProfiles)
