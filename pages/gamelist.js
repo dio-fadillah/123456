@@ -1,6 +1,6 @@
 import Layout from "../components/Layout";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../components/header";
+import Footer from "../components/footer";
 import { Container, Row, Col } from 'reactstrap';
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
