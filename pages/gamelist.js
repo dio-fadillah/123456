@@ -47,7 +47,7 @@ const Gamelist = () => {
                         <ReactPlayer url={gamelist.gamePlayer} />
                         <p></p>
                         <Col md="auto">
-                            <Link className="btn btn-warning btn-lg" href="/suwit" role="button"><a>PLAY NOW</a></Link>
+                               <Link className="btn btn-warning btn-lg" href="/suwit" role="button"><a>PLAY NOW</a></Link>
                         </Col>
                         <p></p>
                     </Row>
