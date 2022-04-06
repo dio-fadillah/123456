@@ -1,29 +1,3 @@
-<<<<<<< HEAD
-=======
-// import withProtected from "../context/protected"
-// import AuthLayout from '../context/Authenticate'
-// import { useUser } from "../context/user"
-
-// const Protect = () => {
-//     const user = useUser()
-//     const { email, uid } = user
-//     return (
-//         <AuthLayout title="Protected Page">
-//             <div>
-//                 <p>Email: <b>{email}</b></p>
-//                 <br />
-//                 <p>UID: <b>{uid}</b></p>
-//             </div>
-            
-//         </AuthLayout>
-//     )
-// }
-
-// export default withProtected(Protect) 
-
-
-import Layout from "../components/Layout";
->>>>>>> 496d1d65f0a8b8ca41fd575a8b62f2241ed5586d
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Container, Button, Form, FormGroup, Label, Input, Col, Row } from 'reactstrap'
