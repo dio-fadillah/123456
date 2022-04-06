@@ -11,7 +11,7 @@ import { auth, SignUp, GetSignUpErrorMessage } from "../services/firebase";
 // import FormError from "../components/forms/error";
 import { signInWithEmailAndPassword } from "firebase/auth";
 // import withUnprotected from "../hoc/withUnprotected";
-import { userAuthy } from "../redux/action/counter/creator";
+import { prisma } from "../lib/_prisma";
 
 const Login = (props) => {
     const [userAuthy,setuserAuthy] = useState('')
@@ -27,6 +27,7 @@ const Login = (props) => {
   
     const handleSubmit = (e) => {
         e.preventDefault()
+        
         setInputValue({ ...inputValue, [e.target.name]: e.target.value });
         console.log(inputValue)
         
@@ -42,9 +43,24 @@ const Login = (props) => {
                 console.log({ errorCode, errorMessage })
             })
 
-        setuserAuthy(email)
-        console.log(userAuthy)
-        
+
+        function postMessage(e) {
+           
+            let content = document.querySelector("#email");
+          
+            fetch(`${server}/api/posts/write`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ content: content.value }),
+            })
+                .catch((error) => console.error("WriteError", error))
+                .finally(() => {
+                    content.value = "";
+                    author.value = "";
+                });
+        }
     }
 
 
