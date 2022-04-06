@@ -1,5 +1,5 @@
 
-import withProtected from "../../hoc/withProtected"
+import withProtected from "../../context/protected"
 import AuthLayout from '../../components/layout/Authenticate'
 import { useUser } from "../../context/user"
 
