@@ -9,7 +9,7 @@ const withProtected = (Pages) => {
         const { uid } = user
 
         if (!uid) {
-            router.replace('/')
+            router.replace('/login')
             return <></>
         }
 
