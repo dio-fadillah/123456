@@ -14,27 +14,26 @@ const Sidebar = props => {
         <>
     
             <Nav className="col-md-12 d-none d-md-block bg-light sidebar"
-            activeKey="/home"
-            onSelect={selectedKey => alert(`selected ${selectedKey}`)}
+            activeKey="/"
             >
                 <div className="sidebar-sticky"></div>
             <Nav.Item>
-                <Nav.Link href="/home"><h4><RiDashboard2Fill/> My Dashboard</h4></Nav.Link>
+                <Nav.Link href="/dashboard"><h5><RiDashboard2Fill/> My Dashboard</h5></Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link href="/myprofiles"><h4><CgProfile/> My Profiles</h4></Nav.Link>
+                <Nav.Link href="/myprofiles"><h5><CgProfile/> My Profiles</h5></Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link eventKey="link-2"><h4><MdOutlineRedeem/> Redeem Voucher</h4></Nav.Link>
+                <Nav.Link href="/redeem"><h5><MdOutlineRedeem/> Redeem Voucher</h5></Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link href="/gamelist"><h4><MdOutlineRedeem/> Gamelist</h4></Nav.Link>
+                <Nav.Link href="/gamelist"><h5><MdOutlineRedeem/> Gamelist</h5></Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link eventKey="link-2"><h4><MdLiveHelp/> Ask for help</h4></Nav.Link>
+                <Nav.Link href="https://wa.me/+6212345678"><h5><MdLiveHelp/> Ask for help</h5></Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link onClick={SignOut} ><h4><MdLogout/> Logout</h4></Nav.Link>
+                <Nav.Link onClick={SignOut} ><h5><MdLogout/> Logout</h5></Nav.Link>
             </Nav.Item>
             </Nav>
           

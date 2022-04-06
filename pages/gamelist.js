@@ -5,8 +5,21 @@ import { Container, Row, Col } from 'reactstrap';
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
+import ReactPlayer from 'react-player'
+import { useEffect, useState } from "react";
+import { collection, onSnapshot } from "firebase/firestore";
+import db from "../services/firebase";
+
 
 const Gamelist = () => {
+
+    const [gamelists, setGamelists] = useState([])
+    useEffect(() =>
+        onSnapshot(collection(db, "gamelist"), (snapshot) => {
+            setGamelists(snapshot.docs.map(doc => doc.data()));
+        }),
+        [])
+
   return (
     <Layout pageTitle="Gamelist Page">
       <Header />
@@ -24,14 +37,18 @@ const Gamelist = () => {
                 </Col>
             </Row>
             <Row>
+            {gamelists.map((gamelist) => (
+                <>
                 <Col className="p-5" xs={3}>
                     <Row className="justify-content-md-center">
-                        <h2>GAME 1</h2>
-                        <p>ini adalah deskripsi game yang berubah redux</p>
-                        <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/>
+                        <h2>{gamelist.gameTitle}</h2>
+                        <p>{gamelist.gameDesc}</p>
+                        {/* <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/> */}
+                        <ReactPlayer url={gamelist.gamePlayer} />
                         <p></p>
                         <Col md="auto">
-                            <Link className="btn btn-warning btn-lg" href="/login" role="button">PLAY NOW</Link>
+<<<<<<< HEAD
+                            <Link href="/suwit" role="button"><a className="btn btn-warning btn-md">PLAY NOW</a></Link>
                         </Col>
                         <p></p>
                     </Row>
@@ -39,12 +56,13 @@ const Gamelist = () => {
 
                 <Col className="p-5" xs={3}>
                     <Row className="justify-content-md-center">
-                        <h2>GAME 2</h2>
-                        <p>ini adalah deskripsi game yang berubah redux</p>
-                        <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/>
+                        <h4>Mobile Legends</h4>
+                        <p>A mobile multiplayer online battle arena game developed and published by Moonton</p>
+                        {/* <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/> */}
+                        <ReactPlayer url="https://youtu.be/cftqT7au9gk" />
                         <p></p>
                         <Col md="auto">
-                            <Link className="btn btn-warning btn-lg" href="/login" role="button">PLAY NOW</Link>
+                            <Link href="/" role="button"><a className="btn btn-warning btn-md">PLAY NOW</a></Link>
                         </Col>
                         <p></p>
                     </Row>
@@ -52,12 +70,13 @@ const Gamelist = () => {
 
                 <Col className="p-5" xs={3}>
                     <Row className="justify-content-md-center">
-                        <h2>GAME 3</h2>
-                        <p>ini adalah deskripsi game yang berubah redux</p>
-                        <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/>
+                        <h4>PUBG Mobile</h4>
+                        <p>A free-to-play battle royale video game developed by LightSpeed and Quantum Studio</p>
+                        {/* <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/> */}
+                        <ReactPlayer url="https://youtu.be/_LTiEXMc5J0" />
                         <p></p>
                         <Col md="auto">
-                            <Link className="btn btn-warning btn-lg" href="/login" role="button">PLAY NOW</Link>
+                            <Link href="/" role="button"><a className="btn btn-warning btn-md">PLAY NOW</a></Link>
                         </Col>
                         <p></p>
                     </Row>
@@ -65,16 +84,22 @@ const Gamelist = () => {
 
                 <Col className="p-5" xs={3}>
                     <Row className="justify-content-md-center">
-                        <h2>GAME 4</h2>
-                        <p>ini adalah deskripsi game yang berubah redux</p>
-                        <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/>
+                        <h4>Candy Crush</h4>
+                        <p>Switch and match your way through hundreds of levels in this divine puzzle adventure</p>
+                        {/* <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/> */}
+                        <ReactPlayer url="https://www.youtube.com/watch?v=j6QCe_AqaZ4" />
                         <p></p>
                         <Col md="auto">
-                            <Link className="btn btn-warning btn-lg" href="/login" role="button">PLAY NOW</Link>
+                            <Link href="/" role="button"><a className="btn btn-warning btn-md">PLAY NOW</a></Link>
+=======
+                            <Link className="btn btn-warning btn-lg" href="/suwit" role="button"><a>PLAY NOW</a></Link>
+>>>>>>> 496d1d65f0a8b8ca41fd575a8b62f2241ed5586d
                         </Col>
                         <p></p>
                     </Row>
                 </Col>
+                </>
+                ))}
             </Row>        
         </Container>
       </main>
@@ -83,5 +108,5 @@ const Gamelist = () => {
     </Layout>
   );
 };
-export default Gamelist;
 
+export default Gamelist;

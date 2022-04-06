@@ -8,11 +8,15 @@ import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import { auth, SignUp, GetSignUpErrorMessage } from "../services/firebase";
 // import firebase from '../services/firebase'
-import FormError from "../components/forms/error";
+// import FormError from "../components/forms/error";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import withUnprotected from "../hoc/withUnprotected";
+// import withUnprotected from "../hoc/withUnprotected";
+import { prisma } from "../lib/_prisma";
+
+import withUnprotected from "../context/unprotected";
 
 const Login = (props) => {
+    const [userAuthy,setuserAuthy] = useState('')
     const [inputValue, setInputValue] = useState({ email: '', password: '' })
     const { email, password } = inputValue
 
@@ -25,15 +29,10 @@ const Login = (props) => {
   
     const handleSubmit = (e) => {
         e.preventDefault()
+        
         setInputValue({ ...inputValue, [e.target.name]: e.target.value });
         console.log(inputValue)
-        // try {
-        //     SignUp(inputValue)
-        // } catch(error) {
-        //     const message = GetSignUpErrorMessage(error.code)
-        //     console.log(message)
-        // }
-
+        
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
@@ -45,28 +44,27 @@ const Login = (props) => {
                 const errorMessage = error.message;
                 console.log({ errorCode, errorMessage })
             })
+
+
+        function postMessage(e) {
+           
+            let content = document.querySelector("#email");
+          
+            fetch(`${server}/api/posts/write`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ content: content.value }),
+            })
+                .catch((error) => console.error("WriteError", error))
+                .finally(() => {
+                    content.value = "";
+                    author.value = "";
+                });
+        }
     }
-//     const handleInput = (e) => {
-//         const { name, value } = e.target
-//         setInputValue({ ...inputValue, [name]: value })
-//     }
-//     const handleSubmit = () => {
-//         // e.preventDefault()
-//         firebase.auth.signInWithEmailAndPassword(auth, email, password)
-//             .then(userCredential => {
-//                 const isLogin = userCredential.user
-//                 console.log(isLogin)
-//                 if (isLogin) {
-//                     setInputValue({ email: '', password: '' })
-//                     props.navigate('/gamelist')
-//                 }
-//             })
-//             .catch(err => {
-//                 alert(err.message)
-//             })
-// >>>>>>> 08c912b60876ccbf36fa0f239d1402a0ee350683
-//     }
-    
+
 
   return (
     <Layout pageTitle="Login Page">
@@ -75,11 +73,12 @@ const Login = (props) => {
       <main>
 
         <Container>
+        
         <Row className="justify-content-md-center">
-        <Col className="p-5" xs="4">
-                <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/>
+        <Col xs="6">
+                <Image src="/assets/login/lock1.jpg" alt="Picture of the author" width="604px" height="339px"/>
             </Col>
-        <Col className="p-5" xs="4">
+        <Col xs="4">
         <Form onSubmit={handleSubmit}>
         <FormGroup className={styles.outer}>
                 <FormGroup className={styles.inner}>
@@ -145,5 +144,6 @@ const Login = (props) => {
     </Layout>
   );
 };
-export default Login;
+//export default Login;
+export default withUnprotected(Login)
 

@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model result {
+  id          BigInt  @id @default(autoincrement())
+  email       String? @db.VarChar(255)
+  username    String? @db.VarChar(255)
+  fullname    String? @db.VarChar(255)
+  phone       BigInt?
+  total_match BigInt?
+  total_win   BigInt?
+  total_lose  BigInt?
+  total_draw  BigInt?
+}

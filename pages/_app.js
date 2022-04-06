@@ -20,6 +20,7 @@ function MyApp({ Component, pageProps }) {
     </AuthStateChangeProvider>
   </UserProvider>
   </>
+  
   )
 }
 

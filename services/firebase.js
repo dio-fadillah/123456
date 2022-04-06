@@ -1,42 +1,41 @@
 import { initializeApp, getApps } from "firebase/app";
-// import { getAnalytics } from "firebase/analytics";
 import { 
     getAuth, 
     createUserWithEmailAndPassword, 
     signInWithEmailAndPassword,
     signOut
 } from 'firebase/auth'
-// import { async } from "@firebase/util";
-// import * as React from "react";
-
-// import { getAnalytics } from "firebase/analytics";
-import 'firebase/auth'
+import {getFirestore} from "firebase/firestore"
 import 'firebase/storage'
+import { UserProvider } from "../context/user";
+
+
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAYkhmER8bG3wGkmS3TJ9Ij1As2hoGTvwE",
-  authDomain: "binar-taskforce-team-1.firebaseapp.com",
-  projectId: "binar-taskforce-team-1",
-  storageBucket: "binar-taskforce-team-1.appspot.com",
-  messagingSenderId: "770081196719",
-  appId: "1:770081196719:web:5546cc80b2f71d953c225a",
-  measurementId: "G-FCW8LXB2M8"
+    apiKey: "AIzaSyAYkhmER8bG3wGkmS3TJ9Ij1As2hoGTvwE",
+    authDomain: "binar-taskforce-team-1.firebaseapp.com",
+    projectId: "binar-taskforce-team-1",
+    storageBucket: "binar-taskforce-team-1.appspot.com",
+    messagingSenderId: "770081196719",
+    appId: "1:770081196719:web:5546cc80b2f71d953c225a",
+    measurementId: "G-FCW8LXB2M8"
 };
 
-// Initialize Firebase
+
+//Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export default app
+<<<<<<< HEAD
 export const auth = getAuth() 
-// const analytics = getAnalytics(app);
+export default app
+//const analytics = getAnalytics(app);
 
-// Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// // const analytics = getAnalytics(app)
-// if (!getApps().length) {
-//     initializeApp(firebaseConfig)
-// }
+=======
+export const auth = getAuth(app) 
+// export default app
+export default getFirestore()
+>>>>>>> 496d1d65f0a8b8ca41fd575a8b62f2241ed5586d
 
-
+/////
 
 export const FirebaseAuth = getAuth()
 
@@ -53,10 +52,15 @@ export const SignIn = async (email, password) => {
 }
 
 export const SignOut = async () => {
-    await signOut(FirebaseAuth)
-    window.location.assign('/');
+    signOut(FirebaseAuth).then(() => {
+        window.location.assign('/');
+    })
+
+   
 
 }
+
+
 
 export const GetSignInErrorMessage = (code) => {
     switch (code) {

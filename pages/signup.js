@@ -1,16 +1,16 @@
 import Layout from "../components/Layout";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Container, Button, Form, FormGroup, Label, Input, Col, Row } from 'reactstrap'
+import { Container, Button, Form, FormGroup, Label, Input, Col, Row, Card } from 'reactstrap'
 import React, { useState } from "react";
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
-import { auth, SignUp, GetSignUpErrorMessage } from "../service/firebase";
+import { auth, SignUp, GetSignUpErrorMessage } from "../services/firebase";
 // import firebase from '../services/firebase'
-import FormError from "../components/forms/error";
+// import FormError from "../components/forms/error";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import withUnprotected from "../hook/withUnprotected";
+// import withUnprotected from "../hook/withUnprotected";
 
 // console.log(firebase)
 
@@ -38,7 +38,7 @@ const Signup = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                window.location.assign('/dashboard');
+                window.location.assign('/login');
             
             })
             .catch((error) => {
@@ -113,13 +113,13 @@ const Signup = () => {
 
       <main>
       <Container fluid>
-
+        
         <Row className="justify-content-md-center">
-            <Col className="p-5" xs="4">
-                <Image src="/assets/home/01.jpg" alt="Picture of the author" width="350px" height="300px"/>
+            <Col xs="6">
+                <Image src="/assets/login/lock1.jpg" alt="Picture of the author" width="604px" height="339px                                                                                                                                                                    "/>
             </Col>
 
-            <Col className="p-5" xs="4">
+            <Col xs="4">
                 <FormGroup className={styles.inner}>
                     <Form onSubmit={handleSubmit}>
                         <h1>User Registration</h1>
@@ -160,7 +160,7 @@ const Signup = () => {
                             id='confirmPassword' 
                             name='confirmPassword' 
                             type='password' 
-                            placeholder='Konfirmasi password'
+                            placeholder='Confirm Password'
                             variant='filled'
                             value={password1}
                             // {...register("confirmPassword", { 
@@ -179,7 +179,9 @@ const Signup = () => {
                     </Form>
                 </FormGroup>
             </Col>
+            
         </Row>
+        
       </Container>
       </main>
 
