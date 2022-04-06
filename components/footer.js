@@ -1,9 +1,9 @@
 import { Container, Row, Col } from 'reactstrap';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faInstagram } from '@fortawesome/free-solid-svg-icons'
-import { BsInstagram } from "react-icons/Bs";
-import { BsFacebook } from "react-icons/Bs";
-import { BsWhatsapp } from "react-icons/Bs";
+// import { BsInstagram } from "react-icons/Bs";
+// import { BsFacebook } from "react-icons/Bs";
+// import { BsWhatsapp } from "react-icons/Bs";
 
 const Footer = () => {
   return (
@@ -16,9 +16,9 @@ const Footer = () => {
 
         <Row className="justify-content-md-center">
             <Col md="auto">
-                <a className="btn btn-social mx-2" href="#!"><BsInstagram/></a>
-                <a className="btn btn-social mx-2" href="#!"><BsFacebook/></a>
-                <a className="btn btn-social mx-2" href="#!"><BsWhatsapp/></a>
+                <a className="btn btn-social mx-2" href="#!">Instagram</a>
+                <a className="btn btn-social mx-2" href="#!">Facebook</a>
+                <a className="btn btn-social mx-2" href="#!">Whatsapp</a>
                
             </Col>
         </Row>
