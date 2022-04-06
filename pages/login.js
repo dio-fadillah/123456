@@ -10,8 +10,13 @@ import { auth, SignUp, GetSignUpErrorMessage } from "../services/firebase";
 // import firebase from '../services/firebase'
 // import FormError from "../components/forms/error";
 import { signInWithEmailAndPassword } from "firebase/auth";
+<<<<<<< HEAD
 // import withUnprotected from "../hoc/withUnprotected";
 import { prisma } from "../lib/_prisma";
+=======
+
+import withUnprotected from "../context/unprotected";
+>>>>>>> 496d1d65f0a8b8ca41fd575a8b62f2241ed5586d
 
 const Login = (props) => {
     const [userAuthy,setuserAuthy] = useState('')
@@ -71,11 +76,20 @@ const Login = (props) => {
       <main>
 
         <Container>
+        
         <Row className="justify-content-md-center">
+<<<<<<< HEAD
         <Col xs="6">
                 <Image src="/assets/login/lock1.jpg" alt="Picture of the author" width="604px" height="339px"/>
             </Col>
         <Col xs="4">
+=======
+        <Col className="p-6" xs="4">
+            <Image src="/assets/login/lock1.jpg" alt="Picture of the author" width="604px" height="339px"/>
+        </Col>
+        
+        <Col className="p-6" xs="4">
+>>>>>>> 496d1d65f0a8b8ca41fd575a8b62f2241ed5586d
         <Form onSubmit={handleSubmit}>
         <FormGroup className={styles.outer}>
                 <FormGroup className={styles.inner}>
@@ -141,5 +155,6 @@ const Login = (props) => {
     </Layout>
   );
 };
-export default Login;
+//export default Login;
+export default withUnprotected(Login)
 

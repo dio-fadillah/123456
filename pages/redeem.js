@@ -4,9 +4,13 @@ import { Container, Button, Form, FormGroup, Label, Input, Col, Row } from 'reac
 import React, { useState } from "react";
 import Sidebar from "../components/Sidebar";
 
-
+import { useUser } from "../context/user";
+import withProtected from "../context/protected";
 
 const Redeem = props => {
+    const user = useUser()
+    const { uid } = user
+    
     const [inputValue, setInputValue] = useState({ voucher: '' })
     const { voucher } = inputValue
 
@@ -64,4 +68,5 @@ const Redeem = props => {
         );
   };
 
-export default Redeem
+// export default Redeem
+export default withProtected(Redeem)

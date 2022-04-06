@@ -7,9 +7,13 @@ import styles from '../styles/Home.module.css'
 import Link from "next/link";
 import { useState } from "react";
 
+import { useUser } from "../context/user";
+import withProtected from "../context/protected";
 
 
 const Suwit = () => {
+    const user = useUser()
+    const { uid } = user
     
     const [enableHover, setenableHover] = useState(true)
     const [GameResult, setGameResult] = useState('')
@@ -222,5 +226,6 @@ const Suwit = () => {
     </Layout>
   );
 };
-export default Suwit;
+// export default Suwit;
+export default withProtected(Suwit)
 

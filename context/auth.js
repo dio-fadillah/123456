@@ -22,9 +22,10 @@ const AuthStateChangeProvider = ({ children }) => {
             setIsLoading(false)
         })
     }
-
+   
     useEffect (() => {
         InitiateAuthStateChange()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     if (isLoading) {

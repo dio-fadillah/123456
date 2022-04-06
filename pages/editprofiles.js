@@ -9,10 +9,19 @@ import Link from 'next/link'
 import { auth, SignUp, GetSignUpErrorMessage } from "../services/firebase";
 // import firebase from '../services/firebase'
 // import FormError from "../components/forms/error";
+<<<<<<< HEAD
 // import withUnprotected from "../hoc/withUnprotected";
 // import pdf from '../components/pdf'
+=======
+import { signInWithEmailAndPassword } from "firebase/auth";
+
+import { useUser } from "../context/user";
+import withProtected from "../context/protected";
+>>>>>>> 496d1d65f0a8b8ca41fd575a8b62f2241ed5586d
 
 const Editprofile = (props) => {
+    const user = useUser()
+    const { uid } = user
 
     const [inputValue, setInputValue] = useState({ email: '', password: '',  passwordRef:'', passwordConfirm:''})
     const [username, setusername] = useState('')
@@ -45,7 +54,7 @@ const Editprofile = (props) => {
         <Container>
         <Row className="justify-content-md-center">
         <Col className="p-5" xs="4">
-                <h3>Andrea Gromico</h3>
+                <h3></h3>
                 <Image src="/assets/editprofiles/avatar.png" alt="Picture of the author" width="350px" height="300px"/>
             </Col>
         <Col xs="4">
@@ -122,5 +131,6 @@ const Editprofile = (props) => {
     </Layout>
   );
 };
-export default Editprofile;
+// export default Editprofile;
+export default withProtected(Editprofile)
 
