@@ -7,46 +7,15 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Result from "../components/dashboard/Result";
 import Sidebar from "../components/Sidebar";
-<<<<<<< HEAD
-import { useUser } from "../context/user";
-=======
 
 import { useUser } from "../context/user";
 import withProtected from "../context/protected";
 
->>>>>>> 496d1d65f0a8b8ca41fd575a8b62f2241ed5586d
 
 
 const Dashboard = props => {
     const user = useUser()
-<<<<<<< HEAD
     
-=======
-    const { email, uid } = user
-    // const [inputValue, setInputValue] = useState({ email: '', password: '' })
-    // const { email, password } = inputValue
-
-    // const handleInput = (e) => {
-    //     const { name, value } = e.target
-    //     setInputValue({ ...inputValue, [name]: value })
-    // }
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     signInWithEmailAndPassword(auth, email, password)
-    //         .then(userCredential => {
-    //             const isLogin = userCredential.user
-    //             console.log(isLogin)
-    //             if (isLogin) {
-    //                 setInputValue({ email: '', password: '' })
-    //                 props.navigate('/gamelist')
-    //             }
-    //         })
-    //         .catch(err => {
-    //             alert(err.message)
-    //         })
-    // }
-
->>>>>>> 496d1d65f0a8b8ca41fd575a8b62f2241ed5586d
     return (
         
         <Container fluid>
