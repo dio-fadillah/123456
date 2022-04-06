@@ -26,8 +26,8 @@ const Suwit = () => {
     const onRefresh = () =>{
 
         for (let i = 0; i < 3; i++) {
-            document.querySelectorAll('.com')[i].style.backgroundColor = '';
-            document.querySelectorAll('.choose')[i].style.backgroundColor = '';
+            window.document.querySelectorAll('.com')[i].style.backgroundColor = '';
+            window.document.querySelectorAll('.choose')[i].style.backgroundColor = '';
 
         }
 
@@ -62,11 +62,11 @@ const Suwit = () => {
         console.log('computer',comChoice)
 
         if(comChoice === 'batu'){
-            document.querySelectorAll('.com')[0].style.backgroundColor = '#FF0000'
+            window.document.querySelectorAll('.com')[0].style.backgroundColor = '#FF0000'
         }else if (comChoice === 'gunting'){
-            document.querySelectorAll('.com')[1].style.backgroundColor = '#FF0000'
+            window.document.querySelectorAll('.com')[1].style.backgroundColor = '#FF0000'
         }else{
-            document.querySelectorAll('.com')[2].style.backgroundColor = '#FF0000'
+            window.document.querySelectorAll('.com')[2].style.backgroundColor = '#FF0000'
         }
 
         if(comChoice === playerChoice){
