@@ -31,49 +31,17 @@ import React, { useState } from "react";
 import Image from 'next/image'
 import Sidebar from "../components/Sidebar";
 import Link from 'next/link'
-<<<<<<< HEAD
-import { useUser } from "../context/user";
-=======
 
 import { useUser } from "../context/user";
 import withProtected from "../context/protected";
->>>>>>> 496d1d65f0a8b8ca41fd575a8b62f2241ed5586d
 
 
 const MyProfiles = props => {
     const user = useUser()
-<<<<<<< HEAD
     const [username, setuserName] = useState('Register your username')
     const [phone, setPhone] = useState('Register your handphone number')
     const [fullname, setFullname] = useState('Register your fullname')
     
-=======
-    const { email, uid } = user
-
-    // const [inputValue, setInputValue] = useState({ email: '', password: '' })
-    // const { email, password } = inputValue
-
-    // const handleInput = (e) => {
-    //     const { name, value } = e.target
-    //     setInputValue({ ...inputValue, [name]: value })
-    // }
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     signInWithEmailAndPassword(auth, email, password)
-    //         .then(userCredential => {
-    //             const isLogin = userCredential.user
-    //             console.log(isLogin)
-    //             if (isLogin) {
-    //                 setInputValue({ email: '', password: '' })
-    //                 props.navigate('/gamelist')
-    //             }
-    //         })
-    //         .catch(err => {
-    //             alert(err.message)
-    //         })
-    //}
-
->>>>>>> 496d1d65f0a8b8ca41fd575a8b62f2241ed5586d
     return (
         <>
         <Container fluid>
