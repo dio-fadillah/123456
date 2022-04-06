@@ -1,6 +1,6 @@
 import Layout from "../components/Layout";
-import Header from "../components/header";
-import Footer from "../components/footer";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import { Container, Row, Col, Button } from 'reactstrap';
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
@@ -9,25 +9,30 @@ import { useState } from "react";
 
 import { useUser } from "../context/user";
 import withProtected from "../context/protected";
+import {doc, updateDoc, increment} from "firebase/firestore"
+import { auth } from "../services/firebase";
+import db from "../services/firebase";
 
 
 const Suwit = () => {
     const user = useUser()
     const { uid } = user
+    const userIdRef = auth.currentUser.uid
+    const userRef = doc(db, "users", userIdRef)
     
     const [enableHover, setenableHover] = useState(true)
     const [GameResult, setGameResult] = useState('')
     const [matchCount, setmatchCount] = useState(0)
     const [winCount, setwinCount] = useState(0)
     const [drawCount, setdrawCount] = useState(0)
-    const [loseCount, setloseCount] = useState(0)
+    const [loseCount, setloseCount] = useState(0)   
     
 
     const onRefresh = () =>{
 
         for (let i = 0; i < 3; i++) {
-            window.document.querySelectorAll('.com')[i].style.backgroundColor = '';
-            window.document.querySelectorAll('.choose')[i].style.backgroundColor = '';
+            document.querySelectorAll('.com')[i].style.backgroundColor = '';
+            document.querySelectorAll('.choose')[i].style.backgroundColor = '';
 
         }
 
@@ -62,22 +67,31 @@ const Suwit = () => {
         console.log('computer',comChoice)
 
         if(comChoice === 'batu'){
-            window.document.querySelectorAll('.com')[0].style.backgroundColor = '#FF0000'
+            document.querySelectorAll('.com')[0].style.backgroundColor = '#FF0000'
         }else if (comChoice === 'gunting'){
-            window.document.querySelectorAll('.com')[1].style.backgroundColor = '#FF0000'
+            document.querySelectorAll('.com')[1].style.backgroundColor = '#FF0000'
         }else{
-            window.document.querySelectorAll('.com')[2].style.backgroundColor = '#FF0000'
+            document.querySelectorAll('.com')[2].style.backgroundColor = '#FF0000'
         }
 
         if(comChoice === playerChoice){
             setGameResult('DRAW')
             setdrawCount(drawCount+1)
+            updateDoc(userRef, {
+                drawCount: increment(1)
+            })
         }else if (playerChoice === "batu" && comChoice === "gunting" || (playerChoice === "gunting" && comChoice === "kertas") || playerChoice === "kertas" && comChoice === "batu"){
             setGameResult('PLAYER WIN')
             setwinCount(winCount +1)
+            updateDoc(userRef, {
+                winCount: increment(1)
+            })
         }else{
             setGameResult('COM WIN')
             setloseCount(loseCount+1)
+            updateDoc(userRef, {
+                loseCount: increment(1)
+            })
         }
 
 
@@ -228,4 +242,3 @@ const Suwit = () => {
 };
 // export default Suwit;
 export default withProtected(Suwit)
-
